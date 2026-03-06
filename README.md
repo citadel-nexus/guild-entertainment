@@ -82,6 +82,74 @@ citadel.ent.xp.awarded              — XP event emitted
 
 ---
 
+## Mission System
+
+Entertainment missions reward active play, event hosting, and community engagement.
+
+| Mission | Description | XP | Unlock |
+|---------|-------------|-----|--------|
+| First Match | Host an Arena match with 2+ participants | 100 | Default |
+| Tournament Run | Run a guild tournament with 8+ players | 400 | Entertainer rank |
+| Campaign Arc | Complete a full RPG campaign arc (3+ sessions) | 500 | Entertainer rank |
+| Studio Track | Produce a beat via the Beat Generator pipeline | 150 | Default |
+| Event Host | Host a live guild event with 10+ attendees | 300 | Host rank |
+| Lore Drop | Publish an Entertainment lore event post | 100 | Default |
+| XP Champion | Award 1,000+ XP to guild members in a single event | 600 | Arena Champion rank |
+
+**Daily missions (reset 00:00 UTC):**
+- Emit a `citadel.ent.arena.match_completed` event — 30 XP
+- Post an event announcement in the Guild House feed — 25 XP
+
+Entertainment is the primary XP multiplier for the Brotherhood economy. Hosting events,
+running campaigns, and producing content for other guilds earns bonus TP allocations.
+
+---
+
+## Guild Expectations
+
+**Members:**
+- Participate in at least 1 Arena match or RPG session per sprint
+- Post event recaps in `#arena-results` within 24 hours of match completion
+- Complete Entertainment onboarding (Arena + RPG primer) within 7 days of placement
+- Engage in `#game-room` and `#events` lobby channels
+
+**Contributors:**
+- Arena matchmaking logic changes require load tests (50+ simulated matches)
+- RPG session data must be anonymized before any external logging
+- Studio Beat Generator changes need audio output samples in the PR
+- Code review turnaround: 48 hours
+
+**Guild Lead (Grand Arena Master):**
+- Weekly event calendar posted to `#announcements`
+- Coordinate tournament brackets with Discord event integrations
+- Manage XP award approvals above the standard per-event cap
+
+---
+
+## Contributing
+
+**Branch naming:**
+```
+feat/<srs-code>/<short-description>
+fix/<srs-code>/<short-description>
+arena/<srs-code>/<short-description>
+```
+
+**PR checklist:**
+- [ ] SRS code referenced (e.g., `SRS: ENT-ARENA-004`)
+- [ ] `npm test` passes — Arena matchmaking tests included
+- [ ] Discord webhook payloads tested against staging channel
+- [ ] XP award values reviewed against Brotherhood economy balance
+- [ ] No player PII in match result logs
+
+**Commit format:** `<type>(<srs-code>): <description>`
+Example: `feat(ENT-ARENA-004): add CAPS-grade balancing to matchmaking`
+
+**SAKE compliance:** New game engine modules require a `.sake` file stub.
+See [guild-sdk](https://github.com/citadel-nexus/guild-sdk) for the format.
+
+---
+
 ## Getting Started
 
 ```bash
