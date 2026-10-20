@@ -1,0 +1,34 @@
+# ─── CGRF Header ───────────────────────────────────────────────
+# File: .bits/out/DISP-GOVERNANCE-entertainment/memory.cgrf.yaml
+# Stage: 11_COMMIT
+# SRS: SRS-CN-ENTERTAINMENT-GOVERNANCE-001
+# CAPS: pending
+# CK: pending
+# Dispatch: DISP-GOVERNANCE-entertainment
+# Seat: BITS-CODEGEN
+# Owner: Citadel Nexus Inc.
+# Created: 2026-10-20
+# Depends: .bits/out/DISP-GOVERNANCE-entertainment/memory.json
+# EnumType: Schema
+# EnumEdges: DEPENDS_ON .bits/out/DISP-GOVERNANCE-entertainment/memory.json
+# DAG Node: none
+# Intent: Supply CGRF provenance for the JSON memory payload without invalid JSON comments.
+# ───────────────────────────────────────────────────────────────
+
+# The CGRF header above describes this sidecar; the mapping describes memory.json.
+file: .bits/out/DISP-GOVERNANCE-entertainment/memory.json
+stage: 11_COMMIT
+srs: SRS-CN-ENTERTAINMENT-GOVERNANCE-001
+caps: pending
+ck: pending
+dispatch: DISP-GOVERNANCE-entertainment
+seat: BITS-CODEGEN
+owner: Citadel Nexus Inc.
+created: '2026-10-20'
+depends: [.bits/out/DISP-GOVERNANCE-entertainment/report.md]
+enum_type: Schema
+enum_edges:
+  - verb: DEPENDS_ON
+    target: .bits/out/DISP-GOVERNANCE-entertainment/report.md
+dag_node: none
+intent: Deliver linked governance evidence to the post-merge memory ingestion flow.

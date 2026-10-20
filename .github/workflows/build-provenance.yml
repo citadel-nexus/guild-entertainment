@@ -1,0 +1,105 @@
+# ─── CGRF Header ───────────────────────────────────────────────
+# File: .github/workflows/build-provenance.yml
+# Stage: 11_COMMIT
+# SRS: SRS-CN-ENTERTAINMENT-GOVERNANCE-001
+# CAPS: pending
+# CK: pending
+# Dispatch: DISP-GOVERNANCE-entertainment
+# Seat: BITS-CODEGEN
+# Owner: Citadel Nexus Inc.
+# Created: 2026-10-20
+# Depends: package.json, .bits/check_governance.py
+# EnumType: Workflow
+# EnumEdges: DEPENDS_ON package.json; VALIDATES .bits/check_governance.py
+# DAG Node: none
+# Intent: Bind the compiled distribution digest to a trusted main-branch GitHub build.
+# ───────────────────────────────────────────────────────────────
+
+name: Build provenance
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  governance-checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install PyYAML==6.0.3
+      - run: python .bits/check_governance.py
+      - run: python .bits/check_governance.py --mutations
+
+  build-artifact:
+    needs: governance-checks
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm run build
+      - name: Package build distribution
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f dist/index.js
+          mkdir -p artifacts
+          tar -czf artifacts/guild-entertainment-dist.tar.gz dist package.json README.md LICENSE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: entertainment-dist
+          path: artifacts/guild-entertainment-dist.tar.gz
+          if-no-files-found: error
+          retention-days: 30
+
+  attest:
+    needs: build-artifact
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'citadel-nexus/guild-entertainment'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      id-token: write
+      attestations: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: entertainment-dist
+          path: artifacts
+      - name: Sign SLSA build provenance
+        id: provenance
+        uses: actions/attest-build-provenance@v3
+        with:
+          subject-path: artifacts/guild-entertainment-dist.tar.gz
+      - name: Preserve verification bundle
+        shell: bash
+        env:
+          BUNDLE_PATH: ${{ steps.provenance.outputs.bundle-path }}
+        run: |
+          set -euo pipefail
+          mkdir -p provenance
+          cp -- "$BUNDLE_PATH" provenance/provenance.jsonl
+      - uses: actions/upload-artifact@v4
+        with:
+          name: entertainment-provenance
+          path: provenance/provenance.jsonl
+          if-no-files-found: error
+          retention-days: 30
