@@ -57,11 +57,39 @@ enabling one, add and validate `merge_group` coverage for every required check.
 
 ## Ownership prerequisites
 
-Confirm `guild-entertainment-leads` and `sdk-core` exist as visible GitHub teams
-with write access. Confirm Director Nexus's GitHub identity and lead-team
-membership; `director` is only the supplied GitLab identity. Validate CODEOWNERS
-in GitHub. Code-owner review cannot enforce two separate team approvals;
-apply the additional approval procedure in GOVERNANCE.md.
+The confirmed human code-owner team is `@citadel-nexus/guild-entertainment`;
+the guild's GitHub App automation/bot identity is `director-nexus-ent-guildmaster`.
+Identity source: the operator's 2026-10-20 update, citing Datadog team
+**Entertainment Guild — Director Nexus** (`guild-entertainment`) links.
+The identity mapping is resolved. Admins still must validate that
+`guild-entertainment` and `sdk-core` are visible GitHub teams with write access
+and eligible human reviewers. Validate CODEOWNERS in GitHub. GitHub Apps
+cannot be code owners; do not add the App to CODEOWNERS. Code-owner review
+cannot enforce two separate team approvals; apply GOVERNANCE.md's additional
+human approval procedure.
+
+## Automation actors and bypass limits
+
+Default: no bypass for `director-nexus-ent-guildmaster`. The App may submit or
+update PRs under its installed permissions; a bot review is not human approval.
+Human code-owner review remains mandatory for `.github/**`, `GOVERNANCE.md`,
+`CODEOWNERS` (including `.github/CODEOWNERS`), and workflows.
+
+Only consider adding this App as a ruleset actor or allowed bypass actor when
+a specific automation need is justified and approved under GOVERNANCE.md.
+For example, a separate rule restricting automation-branch creation might
+permit the App without waiving the default branch's review rules. Record the
+App installation/actor ID verified in GitHub, the exact rule and branch scope,
+human approvers, expiry and audit/revocation plan. Do not invent an actor ID.
+
+A branch ruleset's bypass list applies to its rules, not selected file paths.
+Never add the App to the bypass list of a ruleset or legacy protection that
+would let it waive required human review on the protected paths. Even a
+pull-request-only bypass can waive review requirements; it is not sufficient
+protection. Keep human-review rules in an active ruleset with no App bypass,
+and validate the combined rules before permitting any separate exception.
+If GitHub cannot express that separation, deny the exception. No bypass or
+settings change is authorized or applied by this staging update.
 
 ## Signing and Actions prerequisites
 
@@ -88,5 +116,5 @@ After repair: run a PR build, observe all required checks, test rejected
 unsigned commits and missing owner approval, merge through the protected path,
 and verify a main-branch artifact as described in PROVENANCE.md. Confirm PR
 runs skip signing. Record results before treating protections and provenance as
-operational. Default-branch settings, permissions and owner identity remain
+operational. Default-branch settings, permissions and team-access validation remain
 administrator tasks; this staging change does not claim they are enabled.

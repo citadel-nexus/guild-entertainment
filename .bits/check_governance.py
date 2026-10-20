@@ -27,12 +27,14 @@ from pathlib import Path
 import sys
 from typing import Any, Callable
 import unittest
+from unittest.mock import patch
 
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 SRS = "SRS-CN-ENTERTAINMENT-GOVERNANCE-001"
 DISPATCH = "DISP-GOVERNANCE-entertainment"
+CODEOWNERS = (ROOT / ".github/CODEOWNERS").read_text()
 # BaseLoader keeps GitHub's YAML `on` key a string instead of a YAML 1.1 boolean.
 WORKFLOW = yaml.load(
     (ROOT / ".github/workflows/build-provenance.yml").read_text(),
@@ -56,14 +58,13 @@ class GovernanceContract(unittest.TestCase):
             self.assertTrue((ROOT / path).is_file())
 
     def test_ownership_preserves_sdk(self) -> None:
-        """Retain the existing review teams and explicit guildmaster identity."""
-        owners = (ROOT / ".github/CODEOWNERS").read_text()
-        rules = [line.split() for line in owners.splitlines()
+        """Require the confirmed human team and retain SDK ownership."""
+        rules = [line.split() for line in CODEOWNERS.splitlines()
                  if line.strip() and not line.startswith("#")]
         self.assertEqual(rules, [
-            ["*", "@citadel-nexus/guild-entertainment-leads"],
+            ["*", "@citadel-nexus/guild-entertainment"],
             ["src/index.ts", "@citadel-nexus/sdk-core",
-             "@citadel-nexus/guild-entertainment-leads"],
+             "@citadel-nexus/guild-entertainment"],
         ])
         charter = (ROOT / "GOVERNANCE.md").read_text()
         for term in ("Director Nexus", "Tamagotchi", "Entertainment Floor", "guildmasters group"):
@@ -159,7 +160,13 @@ class GovernanceContract(unittest.TestCase):
 
 
 def run_mutation_checks() -> bool:
-    """Confirm that unsafe workflow variants fail the security contract."""
+    """Reject unsafe workflows and owners after validating the positive control."""
+    baseline = unittest.TextTestRunner(stream=io.StringIO()).run(
+        unittest.defaultTestLoader.loadTestsFromTestCase(GovernanceContract)
+    )
+    if not baseline.wasSuccessful():
+        print("FAIL: baseline contract must pass before mutation checks")
+        return False
     original = copy.deepcopy(WORKFLOW)
     mutations: dict[str, Callable[[dict[str, Any]], None]] = {
         "privileged PR trigger": lambda w: w["on"].update({"pull_request_target": {}}),
@@ -184,6 +191,25 @@ def run_mutation_checks() -> bool:
     finally:
         WORKFLOW.clear()
         WORKFLOW.update(original)
+    owner_mutations = {
+        "bare GitHub App owner": "director-nexus-ent-guildmaster",
+        "GitHub App account owner": "@director-nexus-ent-guildmaster",
+        "placeholder guild lead team": "@citadel-nexus/guild-entertainment-leads",
+        "placeholder owner": "@TODO",
+        "missing human owner": "",
+        "App alongside human owner": (
+            "@citadel-nexus/guild-entertainment @director-nexus-ent-guildmaster"
+        ),
+    }
+    for name, owner in owner_mutations.items():
+        candidate = CODEOWNERS.replace("@citadel-nexus/guild-entertainment", owner)
+        with patch.dict(globals(), {"CODEOWNERS": candidate}):
+            result = unittest.TextTestRunner(stream=io.StringIO()).run(
+                GovernanceContract("test_ownership_preserves_sdk")
+            )
+        rejected = bool(result.failures) and not result.errors
+        print(f"{'PASS' if rejected else 'FAIL'}: reject {name}")
+        passed = passed and rejected
     return passed
 
 

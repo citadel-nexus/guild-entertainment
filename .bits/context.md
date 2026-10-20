@@ -36,6 +36,11 @@ introduce secrets, or perform unrelated runtime repairs.
 
 Baseline lacks a lockfile, TypeScript config, ESLint config and declared build/
 test tools. These block existing npm CI and the new build job until resolved
-in a separate authorized change. GitHub identity for GitLab `director` needs
-admin confirmation. Existing CI targets `main`; remote default-branch metadata
+in a separate authorized change. The operator confirmed GitHub team
+`@citadel-nexus/guild-entertainment` and automation App
+`director-nexus-ent-guildmaster` from Datadog team **Entertainment Guild — Director Nexus**
+(`guild-entertainment`) links on 2026-10-20. Human code-owner review is required;
+the App is not a code owner. Ruleset/branch protection activation, team-access
+validation and Actions attestation/OIDC permissions remain admin actions.
+Existing CI targets `main`; remote default-branch metadata
 could not be queried with this sandbox's repository CLI configuration.

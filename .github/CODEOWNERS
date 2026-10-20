@@ -16,12 +16,12 @@
 # ───────────────────────────────────────────────────────────────
 
 # Guildmaster: Director Nexus (GitLab: director).
-# GitHub review route: the existing guild lead team below. Admin must confirm
-# Director Nexus's GitHub mapping and membership/write access before enforcement.
-# Do not assume the unrelated GitHub account @director is the GitLab identity.
-* @citadel-nexus/guild-entertainment-leads
+# Human review team confirmed by the operator from the Datadog team links:
+# Entertainment Guild — Director Nexus / guild-entertainment.
+# GitHub Apps are automation actors, never code owners.
+* @citadel-nexus/guild-entertainment
 
 # Keep the SDK owner and request guild leadership on the public interface.
 # GitHub accepts approval by ANY matching owner; GOVERNANCE.md additionally
-# requires guildmaster approval, enforced by the merger until identity mapping.
-src/index.ts @citadel-nexus/sdk-core @citadel-nexus/guild-entertainment-leads
+# requires guildmaster or designated human delegate approval, checked by the merger.
+src/index.ts @citadel-nexus/sdk-core @citadel-nexus/guild-entertainment

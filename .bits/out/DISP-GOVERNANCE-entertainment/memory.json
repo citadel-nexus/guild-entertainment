@@ -75,7 +75,7 @@
       "dependencies": [
         ".bits/queue/DISP-GOVERNANCE-entertainment.md"
       ],
-      "lines": 41,
+      "lines": 46,
       "caps_grade": "pending",
       "ck_stamp": "pending",
       "intent_statement": "Bound the staging session and expose prerequisites before implementation.",
@@ -137,7 +137,7 @@
       "dependencies": [
         ".bits/check_governance.py"
       ],
-      "lines": 57,
+      "lines": 68,
       "caps_grade": "pending",
       "ck_stamp": "pending",
       "intent_statement": "Specify reviewable ownership and artifact trust requirements for the guild.",
@@ -168,7 +168,7 @@
       "dependencies": [
         ".bits/srs/SRS-CN-ENTERTAINMENT-GOVERNANCE-001.md"
       ],
-      "lines": 66,
+      "lines": 79,
       "caps_grade": "pending",
       "ck_stamp": "pending",
       "intent_statement": "Record the operator authorization and bounded task gates for this bootstrap.",
@@ -232,7 +232,7 @@
         "BRANCH_PROTECTION.md",
         "PROVENANCE.md"
       ],
-      "lines": 72,
+      "lines": 90,
       "caps_grade": "pending",
       "ck_stamp": "pending",
       "intent_statement": "Make guild accountability and approval authority explicit before protected delivery.",
@@ -264,7 +264,7 @@
         ".github/workflows/build-provenance.yml",
         "GOVERNANCE.md"
       ],
-      "lines": 92,
+      "lines": 120,
       "caps_grade": "pending",
       "ck_stamp": "pending",
       "intent_statement": "Specify enforceable default-branch controls and their administrator prerequisites.",
@@ -363,7 +363,7 @@
         ".github/CODEOWNERS",
         ".bits/srs/SRS-CN-ENTERTAINMENT-GOVERNANCE-001.md"
       ],
-      "lines": 193,
+      "lines": 219,
       "caps_grade": "pending",
       "ck_stamp": "pending",
       "intent_statement": "Prevent widening the artifact signing boundary or losing ownership requirements.",
@@ -395,7 +395,7 @@
         ".bits/queue/DISP-GOVERNANCE-entertainment.md",
         ".bits/out/DISP-GOVERNANCE-entertainment/memory.json"
       ],
-      "lines": 124,
+      "lines": 145,
       "caps_grade": "pending",
       "ck_stamp": "pending",
       "intent_statement": "Preserve validation limits and admin handoff requirements for the staging change.",
@@ -426,7 +426,7 @@
       "dependencies": [
         ".bits/out/DISP-GOVERNANCE-entertainment/report.md"
       ],
-      "lines": 748,
+      "lines": 761,
       "caps_grade": "pending",
       "ck_stamp": "pending",
       "intent_statement": "Deliver linked governance evidence to the post-merge memory ingestion flow.",
@@ -731,12 +731,25 @@
       "timestamp": "2026-10-20T17:36:04.777260+00:00",
       "commit_sha": null,
       "smoke_result": "0/3 application"
+    },
+    {
+      "type": "C",
+      "event_type": "test_pass",
+      "file_path": ".bits/check_governance.py",
+      "description": "Operator confirmed the human GitHub team @citadel-nexus/guild-entertainment and automation App director-nexus-ent-guildmaster from Datadog team Entertainment Guild \u2014 Director Nexus / guild-entertainment links. Updated ownership policy passed 10 static checks and rejected 12 unsafe workflow/owner variants; no GitHub settings changed.",
+      "caps_before": null,
+      "caps_after": null,
+      "dag_impact": null,
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "timestamp": "2026-10-20T17:50:29.245373+00:00",
+      "commit_sha": null,
+      "smoke_result": "10/10 static; 12/12 negative"
     }
   ],
   "summary": {
     "type_a_count": 15,
     "type_b_count": 23,
-    "type_c_count": 2,
+    "type_c_count": 3,
     "ioo_compliance": true,
     "dkg_orphans": 0,
     "dispatch_id": "DISP-GOVERNANCE-entertainment",

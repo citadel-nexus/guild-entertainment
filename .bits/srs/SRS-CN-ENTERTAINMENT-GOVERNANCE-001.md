@@ -31,12 +31,23 @@ including this local SRS and dispatch. This authorization supersedes the
 missing-record bootstrap stop for this work only. No remote VCC status is
 claimed. No production, deployment, direct push, settings change or secrets.
 
+## Confirmed ownership identities
+
+The operator's 2026-10-20 continuation resolves the mapping from Datadog team
+**Entertainment Guild — Director Nexus** (`guild-entertainment`) links:
+human GitHub owner team `@citadel-nexus/guild-entertainment`; automation GitHub
+App `director-nexus-ent-guildmaster`. The App is not a CODEOWNER or a substitute
+for human review. Any proposed ruleset bypass needs the justification and
+human-review safeguards in GOVERNANCE.md and BRANCH_PROTECTION.md; no exception
+is granted here. Admin activation of protections and Actions attestations plus
+`id-token` OIDC remains pending.
+
 ## Acceptance
 
 1. Name Director Nexus (GitLab `director`) as guildmaster, document the
    entertainment surfaces, Tamagotchi agent pets and Entertainment Floor,
-   preserve SDK ownership, and route GitHub reviews through existing teams
-   until the guildmaster's GitHub identity is verified.
+   preserve SDK ownership, and route GitHub reviews through the confirmed human
+   team `@citadel-nexus/guild-entertainment`. Reject App and placeholder owners.
 2. Document decisions, required guildmaster approval and guildmasters-group
    escalation. Describe admin steps for default-branch review, signed commits,
    required checks, no force pushes and no deletion. No settings automation

@@ -25,10 +25,14 @@
 - Dispatch: DISP-GOVERNANCE-entertainment
 - Seat: BITS-CODEGEN; mode: staging.
 - SRS: SRS-CN-ENTERTAINMENT-GOVERNANCE-001
-- Branch: bits/SRS-CN-ENTERTAINMENT-GOVERNANCE-001-bootstrap
+- Branch: dd/bits/SRS-CN-ENTERTAINMENT-GOVERNANCE-001-bootstrap
 - Tasks: 4/4 local phases; live provenance/admin acceptance pending.
-- Smoke: 1/4 dispatch commands passing (25%); the passing static suite has 10/10 checks.
-- Additional negative validation: 6/6 unsafe workflow variants rejected.
+- Smoke: prior application smoke remains 1/4 dispatch commands passing (25%).
+- Current continuation: 10/10 static checks passed; 12/12 unsafe variants rejected.
+- Identity resolved: human owner team `@citadel-nexus/guild-entertainment`;
+  automation GitHub App `director-nexus-ent-guildmaster` (not a code owner).
+- Identity source: operator's 2026-10-20 update citing Datadog team
+  **Entertainment Guild — Director Nexus** (`guild-entertainment`) links.
 - CKS Gate: B+/75; CKS: pending; CAPS minimum: B+; CAPS: pending; CK: pending.
 - Commits: resolve the focused session change with the command below; no synthetic SHA.
 
@@ -41,7 +45,7 @@ git log --format='%h %s' c84a02bab9f9b7a34c4afe9ad3304e8318a42ace..HEAD
 | Task | Status | Output | Verify | Files / CKET |
 |---|---|---|---|---|
 | A — Bootstrap | PASS | Local staging authorization, registry and spec | `python .bits/check_governance.py GovernanceContract.test_authorized_scope` | AGENTS.md, CLAUDE.md, .bits/context.md, registry, SRS, queue / 04_HYPOTHESIZE and 11_COMMIT |
-| B — Ownership | PASS | Director Nexus charter, existing teams preserved, admin protection specification | `python .bits/check_governance.py GovernanceContract.test_ownership_preserves_sdk GovernanceContract.test_required_checks_exist_on_prs` | .github/CODEOWNERS, GOVERNANCE.md, BRANCH_PROTECTION.md / 06_PLAN |
+| B — Ownership | PASS | Confirmed human guild team, SDK ownership retained, App bypass limits documented | `python .bits/check_governance.py GovernanceContract.test_ownership_preserves_sdk GovernanceContract.test_required_checks_exist_on_prs` | .github/CODEOWNERS, GOVERNANCE.md, BRANCH_PROTECTION.md / 06_PLAN |
 | C — Provenance | PARTIAL | Main-only signing workflow and consumer verification; live run pending | `python .bits/check_governance.py` and PROVENANCE.md verification procedure | workflow, checker, PROVENANCE.md / 11_COMMIT and 06_PLAN |
 | D — Report/memory | PASS | Evidence and linked three-type payload | `python -m json.tool .bits/out/DISP-GOVERNANCE-entertainment/memory.json` | .bits/out/DISP-GOVERNANCE-entertainment/ / 11_COMMIT |
 
@@ -50,6 +54,11 @@ failed application smoke explicitly rather than presenting static success as
 an operational build or a completed remote dispatch.
 
 ## §3 SMOKE TEST RESULTS
+
+The static suite and unsafe variants below were rerun for the identity update.
+Application failures are retained from the bootstrap; npm commands were not
+rerun because this continuation changes only governance, records and checker
+coverage. No build-toolchain or application changes were made.
 
 | Command | Expected | Actual | Result |
 |---|---|---|---|
@@ -68,15 +77,20 @@ blocked by missing PyYAML type stubs. No dependency installation was attempted
 in the sandbox, and no real build artifact or signature was produced.
 
 Additional reproducible security check:
-`python .bits/check_governance.py --mutations` rejects six unsafe variants:
+`python .bits/check_governance.py --mutations` rejects 12 unsafe variants:
 privileged PR trigger, PR signing token, unconditional signing, another run's
-artifact, wrong signed subject and ignored build failure. Workflow shell
-blocks were parsed with `bash -n`. Verification flags were checked against
-`gh attestation verify --help`. Live tamper/identity verification remains pending.
+artifact, wrong signed subject, ignored build failure, bare GitHub App owner,
+App account owner, placeholder guild lead team, placeholder owner, missing
+human owner, and App alongside the human owner. A passing baseline is required
+before the negative checks, so an unrelated failure cannot count as rejection.
+Strict mypy was rerun and remains blocked only by missing PyYAML type stubs.
+During the bootstrap, workflow shell blocks were parsed with `bash -n` and
+verification flags were checked against
+`gh attestation verify --help`. Live artifact tamper and signer-verification tests remain unrun.
 
 ## §4 MEMORY INGEST
 
-- Type A count: 15; Type B count: 23; Type C count: 2.
+- Type A count: 15; Type B count: 23; Type C count: 3.
 - IOO compliance: true; DKG orphans: 0.
 - Payload: .bits/out/DISP-GOVERNANCE-entertainment/memory.json; JSON CGRF metadata: .bits/out/DISP-GOVERNANCE-entertainment/memory.cgrf.yaml.
 - Verify counts/links against the payload summary. No Memory MCP call made.
@@ -101,17 +115,24 @@ Logical stages retain the repository's existing layout, as specified in AGENTS.m
 - Hard-NO scan: no protected paths changed; prior headers were not modified.
 - Secret scan: no forbidden credential prefixes in changed files.
 - Stripe mode: not applicable; no checkout or Stripe logic touched.
-- GitHub settings, publication and production: not changed.
+- GitHub settings and production: not changed. The session records PR #15 as
+  merged; this continuation stays on the same branch and does not open another
+  PR or claim to add code to the completed merge. Revised PR metadata is prepared
+  for the UI; the published PR description has not been directly edited.
 - Default branch assumed main from existing workflows; repository CLI default-
   branch lookup was unavailable due to host/remote configuration mismatch.
 - Remote VCC registration and sibling-repo comparison: not performed.
 
 ## §7 NEXT ACTIONS
 
-- Admin: confirm default branch, visible write-enabled owner teams and Director
-  Nexus's GitHub identity; enable code-owner review, signed commits and required
+- Admin: confirm default branch and visible write-enabled owner teams;
+  enable rulesets/branch protection, code-owner review, signed commits and required
   checks; allow official Actions, OIDC and artifact attestations. See
   BRANCH_PROTECTION.md for exact controls and activation tests.
+- Automation: identity mapping is resolved. No bypass is granted. Any proposed
+  exception for `director-nexus-ent-guildmaster` requires documented human
+  approval and must never waive human code-owner review for `.github/**`,
+  `GOVERNANCE.md`, `CODEOWNERS` or workflows.
 - Build maintainer: repair existing npm build/test/lint prerequisites in a
   separate authorized dispatch, then perform a real main-branch build and
   positive/tampered/wrong-source verification from PROVENANCE.md.
