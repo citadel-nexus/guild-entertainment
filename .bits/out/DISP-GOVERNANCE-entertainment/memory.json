@@ -1,0 +1,748 @@
+{
+  "records": [
+    {
+      "type": "A",
+      "file_path": "AGENTS.md",
+      "cket_stage": "04_HYPOTHESIZE",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".bits/context.md",
+        "GOVERNANCE.md"
+      ],
+      "lines": 68,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Define the authorized public guild workflow without importing private monorepo assumptions.",
+      "objective_id": "DISP-GOVERNANCE-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-GOVERNANCE-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001",
+        "governance-provenance"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "CLAUDE.md",
+      "cket_stage": "04_HYPOTHESIZE",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001"
+      ],
+      "enum_type": "Doc",
+      "functions": [],
+      "dependencies": [
+        "AGENTS.md"
+      ],
+      "lines": 35,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Give IDE seats the scope and limits of the Entertainment Guild bootstrap.",
+      "objective_id": "DISP-GOVERNANCE-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-GOVERNANCE-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001",
+        "governance-provenance"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".bits/context.md",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".bits/queue/DISP-GOVERNANCE-entertainment.md"
+      ],
+      "lines": 41,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Bound the staging session and expose prerequisites before implementation.",
+      "objective_id": "DISP-GOVERNANCE-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-GOVERNANCE-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001",
+        "governance-provenance"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".bits/srs_registry.yml",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-ENTERTAINMENT-GOVERNANCE-001.md"
+      ],
+      "lines": 48,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Register the governance SRS while preserving the existing living-world entry.",
+      "objective_id": "DISP-GOVERNANCE-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-GOVERNANCE-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001",
+        "governance-provenance"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".bits/srs/SRS-CN-ENTERTAINMENT-GOVERNANCE-001.md",
+      "cket_stage": "04_HYPOTHESIZE",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001"
+      ],
+      "enum_type": "Doc",
+      "functions": [],
+      "dependencies": [
+        ".bits/check_governance.py"
+      ],
+      "lines": 57,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Specify reviewable ownership and artifact trust requirements for the guild.",
+      "objective_id": "DISP-GOVERNANCE-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-GOVERNANCE-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001",
+        "governance-provenance"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".bits/queue/DISP-GOVERNANCE-entertainment.md",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-ENTERTAINMENT-GOVERNANCE-001.md"
+      ],
+      "lines": 66,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Record the operator authorization and bounded task gates for this bootstrap.",
+      "objective_id": "DISP-GOVERNANCE-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-GOVERNANCE-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001",
+        "governance-provenance"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".github/CODEOWNERS",
+      "cket_stage": "06_PLAN",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        "GOVERNANCE.md"
+      ],
+      "lines": 27,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Route code review to guild leadership while retaining public SDK ownership.",
+      "objective_id": "DISP-GOVERNANCE-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-GOVERNANCE-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001",
+        "governance-provenance"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "GOVERNANCE.md",
+      "cket_stage": "06_PLAN",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001"
+      ],
+      "enum_type": "Doc",
+      "functions": [],
+      "dependencies": [
+        ".github/CODEOWNERS",
+        "BRANCH_PROTECTION.md",
+        "PROVENANCE.md"
+      ],
+      "lines": 72,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Make guild accountability and approval authority explicit before protected delivery.",
+      "objective_id": "DISP-GOVERNANCE-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-GOVERNANCE-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001",
+        "governance-provenance"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "BRANCH_PROTECTION.md",
+      "cket_stage": "06_PLAN",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001"
+      ],
+      "enum_type": "Doc",
+      "functions": [],
+      "dependencies": [
+        ".github/workflows/build-provenance.yml",
+        "GOVERNANCE.md"
+      ],
+      "lines": 92,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Specify enforceable default-branch controls and their administrator prerequisites.",
+      "objective_id": "DISP-GOVERNANCE-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-GOVERNANCE-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001",
+        "governance-provenance"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "PROVENANCE.md",
+      "cket_stage": "06_PLAN",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001"
+      ],
+      "enum_type": "Doc",
+      "functions": [],
+      "dependencies": [
+        ".github/workflows/build-provenance.yml"
+      ],
+      "lines": 101,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Let artifact consumers verify both archive integrity and the authorized build identity.",
+      "objective_id": "DISP-GOVERNANCE-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-GOVERNANCE-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001",
+        "governance-provenance"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".github/workflows/build-provenance.yml",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001"
+      ],
+      "enum_type": "Workflow",
+      "functions": [],
+      "dependencies": [
+        "package.json",
+        ".bits/check_governance.py"
+      ],
+      "lines": 105,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Bind the compiled distribution digest to a trusted main-branch GitHub build.",
+      "objective_id": "DISP-GOVERNANCE-entertainment",
+      "outcome": "partial",
+      "supersedes": false,
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-GOVERNANCE-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001",
+        "governance-provenance"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".bits/check_governance.py",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001"
+      ],
+      "enum_type": "Test",
+      "functions": [
+        "GovernanceContract",
+        "run_mutation_checks"
+      ],
+      "dependencies": [
+        ".github/workflows/build-provenance.yml",
+        ".github/CODEOWNERS",
+        ".bits/srs/SRS-CN-ENTERTAINMENT-GOVERNANCE-001.md"
+      ],
+      "lines": 193,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Prevent widening the artifact signing boundary or losing ownership requirements.",
+      "objective_id": "DISP-GOVERNANCE-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-GOVERNANCE-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001",
+        "governance-provenance"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".bits/out/DISP-GOVERNANCE-entertainment/report.md",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001"
+      ],
+      "enum_type": "Doc",
+      "functions": [],
+      "dependencies": [
+        ".bits/queue/DISP-GOVERNANCE-entertainment.md",
+        ".bits/out/DISP-GOVERNANCE-entertainment/memory.json"
+      ],
+      "lines": 124,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Preserve validation limits and admin handoff requirements for the staging change.",
+      "objective_id": "DISP-GOVERNANCE-entertainment",
+      "outcome": "partial",
+      "supersedes": false,
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-GOVERNANCE-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001",
+        "governance-provenance"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".bits/out/DISP-GOVERNANCE-entertainment/memory.json",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001"
+      ],
+      "enum_type": "Schema",
+      "functions": [],
+      "dependencies": [
+        ".bits/out/DISP-GOVERNANCE-entertainment/report.md"
+      ],
+      "lines": 748,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Deliver linked governance evidence to the post-merge memory ingestion flow.",
+      "objective_id": "DISP-GOVERNANCE-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-GOVERNANCE-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001",
+        "governance-provenance"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".bits/out/DISP-GOVERNANCE-entertainment/memory.cgrf.yaml",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001"
+      ],
+      "enum_type": "Schema",
+      "functions": [],
+      "dependencies": [
+        ".bits/out/DISP-GOVERNANCE-entertainment/memory.json"
+      ],
+      "lines": 34,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Supply CGRF provenance for the JSON memory payload without invalid JSON comments.",
+      "objective_id": "DISP-GOVERNANCE-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-GOVERNANCE-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-GOVERNANCE-001",
+        "governance-provenance"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "B",
+      "source": "AGENTS.md",
+      "target": ".bits/context.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "AGENTS.md depends_on .bits/context.md.",
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "AGENTS.md",
+      "target": "GOVERNANCE.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "AGENTS.md depends_on GOVERNANCE.md.",
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "CLAUDE.md",
+      "target": "AGENTS.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "CLAUDE.md depends_on AGENTS.md.",
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/context.md",
+      "target": ".bits/queue/DISP-GOVERNANCE-entertainment.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".bits/context.md depends_on .bits/queue/DISP-GOVERNANCE-entertainment.md.",
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/srs_registry.yml",
+      "target": ".bits/srs/SRS-CN-ENTERTAINMENT-GOVERNANCE-001.md",
+      "edge_type": "OWNS",
+      "weight": 1.0,
+      "description": ".bits/srs_registry.yml owns .bits/srs/SRS-CN-ENTERTAINMENT-GOVERNANCE-001.md.",
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/srs/SRS-CN-ENTERTAINMENT-GOVERNANCE-001.md",
+      "target": ".bits/check_governance.py",
+      "edge_type": "VERIFIED_BY",
+      "weight": 1.0,
+      "description": ".bits/srs/SRS-CN-ENTERTAINMENT-GOVERNANCE-001.md verified_by .bits/check_governance.py.",
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/queue/DISP-GOVERNANCE-entertainment.md",
+      "target": ".bits/srs/SRS-CN-ENTERTAINMENT-GOVERNANCE-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".bits/queue/DISP-GOVERNANCE-entertainment.md depends_on .bits/srs/SRS-CN-ENTERTAINMENT-GOVERNANCE-001.md.",
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".github/CODEOWNERS",
+      "target": "GOVERNANCE.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".github/CODEOWNERS depends_on GOVERNANCE.md.",
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "GOVERNANCE.md",
+      "target": ".github/CODEOWNERS",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "GOVERNANCE.md depends_on .github/CODEOWNERS.",
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "GOVERNANCE.md",
+      "target": "BRANCH_PROTECTION.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "GOVERNANCE.md depends_on BRANCH_PROTECTION.md.",
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "GOVERNANCE.md",
+      "target": "PROVENANCE.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "GOVERNANCE.md depends_on PROVENANCE.md.",
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "BRANCH_PROTECTION.md",
+      "target": ".github/workflows/build-provenance.yml",
+      "edge_type": "GATES",
+      "weight": 1.0,
+      "description": "BRANCH_PROTECTION.md gates .github/workflows/build-provenance.yml.",
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "BRANCH_PROTECTION.md",
+      "target": "GOVERNANCE.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "BRANCH_PROTECTION.md depends_on GOVERNANCE.md.",
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "PROVENANCE.md",
+      "target": ".github/workflows/build-provenance.yml",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "PROVENANCE.md depends_on .github/workflows/build-provenance.yml.",
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".github/workflows/build-provenance.yml",
+      "target": "package.json",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".github/workflows/build-provenance.yml depends_on package.json.",
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".github/workflows/build-provenance.yml",
+      "target": ".bits/check_governance.py",
+      "edge_type": "VALIDATES",
+      "weight": 1.0,
+      "description": ".github/workflows/build-provenance.yml validates .bits/check_governance.py.",
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/check_governance.py",
+      "target": ".github/workflows/build-provenance.yml",
+      "edge_type": "VALIDATES",
+      "weight": 1.0,
+      "description": ".bits/check_governance.py validates .github/workflows/build-provenance.yml.",
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/check_governance.py",
+      "target": ".github/CODEOWNERS",
+      "edge_type": "VALIDATES",
+      "weight": 1.0,
+      "description": ".bits/check_governance.py validates .github/CODEOWNERS.",
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/check_governance.py",
+      "target": ".bits/srs/SRS-CN-ENTERTAINMENT-GOVERNANCE-001.md",
+      "edge_type": "VALIDATES",
+      "weight": 1.0,
+      "description": ".bits/check_governance.py validates .bits/srs/SRS-CN-ENTERTAINMENT-GOVERNANCE-001.md.",
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/out/DISP-GOVERNANCE-entertainment/report.md",
+      "target": ".bits/queue/DISP-GOVERNANCE-entertainment.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".bits/out/DISP-GOVERNANCE-entertainment/report.md depends_on .bits/queue/DISP-GOVERNANCE-entertainment.md.",
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/out/DISP-GOVERNANCE-entertainment/report.md",
+      "target": ".bits/out/DISP-GOVERNANCE-entertainment/memory.json",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".bits/out/DISP-GOVERNANCE-entertainment/report.md depends_on .bits/out/DISP-GOVERNANCE-entertainment/memory.json.",
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/out/DISP-GOVERNANCE-entertainment/memory.json",
+      "target": ".bits/out/DISP-GOVERNANCE-entertainment/report.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".bits/out/DISP-GOVERNANCE-entertainment/memory.json depends_on .bits/out/DISP-GOVERNANCE-entertainment/report.md.",
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/out/DISP-GOVERNANCE-entertainment/memory.cgrf.yaml",
+      "target": ".bits/out/DISP-GOVERNANCE-entertainment/memory.json",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".bits/out/DISP-GOVERNANCE-entertainment/memory.cgrf.yaml depends_on .bits/out/DISP-GOVERNANCE-entertainment/memory.json.",
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "C",
+      "event_type": "test_pass",
+      "file_path": ".bits/check_governance.py",
+      "description": "Recorded static validation: 10 contracts passed and six unsafe workflow variants were rejected; no live signature verification claimed.",
+      "caps_before": null,
+      "caps_after": null,
+      "dag_impact": null,
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "timestamp": "2026-10-20T17:36:04.777260+00:00",
+      "commit_sha": null,
+      "smoke_result": "10/10 static; 6/6 negative"
+    },
+    {
+      "type": "C",
+      "event_type": "test_fail",
+      "file_path": "package.json",
+      "description": "Recorded baseline npm test/lint/build failures: missing Vitest, ESLint configuration and TypeScript; application repair is outside this dispatch.",
+      "caps_before": null,
+      "caps_after": null,
+      "dag_impact": null,
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "timestamp": "2026-10-20T17:36:04.777260+00:00",
+      "commit_sha": null,
+      "smoke_result": "0/3 application"
+    }
+  ],
+  "summary": {
+    "type_a_count": 15,
+    "type_b_count": 23,
+    "type_c_count": 2,
+    "ioo_compliance": true,
+    "dkg_orphans": 0,
+    "dispatch_id": "DISP-GOVERNANCE-entertainment",
+    "srs_codes": [
+      "SRS-CN-ENTERTAINMENT-GOVERNANCE-001"
+    ],
+    "seat": "BITS-CODEGEN"
+  }
+}

@@ -1,5 +1,27 @@
-# Guild code owners — all PRs require review from the guild lead team
+# ─── CGRF Header ───────────────────────────────────────────────
+# File: .github/CODEOWNERS
+# Stage: 06_PLAN
+# SRS: SRS-CN-ENTERTAINMENT-GOVERNANCE-001
+# CAPS: pending
+# CK: pending
+# Dispatch: DISP-GOVERNANCE-entertainment
+# Seat: BITS-CODEGEN
+# Owner: Citadel Nexus Inc.
+# Created: 2026-10-20
+# Depends: GOVERNANCE.md
+# EnumType: ConfigDoc
+# EnumEdges: DEPENDS_ON GOVERNANCE.md
+# DAG Node: none
+# Intent: Route code review to guild leadership while retaining public SDK ownership.
+# ───────────────────────────────────────────────────────────────
+
+# Guildmaster: Director Nexus (GitLab: director).
+# GitHub review route: the existing guild lead team below. Admin must confirm
+# Director Nexus's GitHub mapping and membership/write access before enforcement.
+# Do not assume the unrelated GitHub account @director is the GitLab identity.
 * @citadel-nexus/guild-entertainment-leads
 
-# Guild SDK public interface
-src/index.ts @citadel-nexus/sdk-core
+# Keep the SDK owner and request guild leadership on the public interface.
+# GitHub accepts approval by ANY matching owner; GOVERNANCE.md additionally
+# requires guildmaster approval, enforced by the merger until identity mapping.
+src/index.ts @citadel-nexus/sdk-core @citadel-nexus/guild-entertainment-leads
