@@ -168,7 +168,7 @@
       "dependencies": [
         ".bits/srs/SRS-CN-ENTERTAINMENT-GOVERNANCE-001.md"
       ],
-      "lines": 79,
+      "lines": 82,
       "caps_grade": "pending",
       "ck_stamp": "pending",
       "intent_statement": "Record the operator authorization and bounded task gates for this bootstrap.",
@@ -327,7 +327,7 @@
         "package.json",
         ".bits/check_governance.py"
       ],
-      "lines": 105,
+      "lines": 106,
       "caps_grade": "pending",
       "ck_stamp": "pending",
       "intent_statement": "Bind the compiled distribution digest to a trusted main-branch GitHub build.",
@@ -395,7 +395,7 @@
         ".bits/queue/DISP-GOVERNANCE-entertainment.md",
         ".bits/out/DISP-GOVERNANCE-entertainment/memory.json"
       ],
-      "lines": 145,
+      "lines": 149,
       "caps_grade": "pending",
       "ck_stamp": "pending",
       "intent_statement": "Preserve validation limits and admin handoff requirements for the staging change.",
@@ -426,7 +426,7 @@
       "dependencies": [
         ".bits/out/DISP-GOVERNANCE-entertainment/report.md"
       ],
-      "lines": 761,
+      "lines": 774,
       "caps_grade": "pending",
       "ck_stamp": "pending",
       "intent_statement": "Deliver linked governance evidence to the post-merge memory ingestion flow.",
@@ -744,12 +744,25 @@
       "timestamp": "2026-10-20T17:50:29.245373+00:00",
       "commit_sha": null,
       "smoke_result": "10/10 static; 12/12 negative"
+    },
+    {
+      "type": "C",
+      "event_type": "test_pass",
+      "file_path": ".bits/check_governance.py",
+      "description": "Rebased the unpublished identity continuation onto refreshed origin/main. Governance 10/10 and unsafe variants 12/12 pass. Added types-PyYAML and strict mypy to CI; offline stub installation unavailable. Operator authorizes a new governance continuation PR; build SRS stays separate.",
+      "caps_before": null,
+      "caps_after": null,
+      "dag_impact": null,
+      "dispatch_id": "DISP-GOVERNANCE-entertainment",
+      "timestamp": "2026-10-20T18:16:32.115378+00:00",
+      "commit_sha": null,
+      "smoke_result": "10/10 static; 12/12 negative"
     }
   ],
   "summary": {
     "type_a_count": 15,
     "type_b_count": 23,
-    "type_c_count": 3,
+    "type_c_count": 4,
     "ioo_compliance": true,
     "dkg_orphans": 0,
     "dispatch_id": "DISP-GOVERNANCE-entertainment",

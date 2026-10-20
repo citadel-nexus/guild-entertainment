@@ -51,8 +51,11 @@ review, and any proposed bypass must preserve protected-path human approvals.
 Update the checker, unsafe variants, report and PR description. Identity
 mapping is resolved; rulesets/branch protection, team-access validation and
 Actions attestations plus `id-token` OIDC remain pending admin actions.
-PR #15 is recorded as merged by the session; this continuation does not create
-a second PR or claim to update that completed merge.
+PR #15 is merged. The latest operator directive authorizes a new continuation
+PR on this bound branch, rebased onto current main, plus PyYAML stubs and strict
+mypy in CI. Publication uses the UI. AGENTS.md requires one SRS per branch, so
+SRS-CN-ENTERTAINMENT-BUILD-001 / DISP-BUILD-entertainment will be a separate
+follow-up after this governance continuation, not part of this PR.
 
 ## Task table
 

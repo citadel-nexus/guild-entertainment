@@ -83,14 +83,16 @@ artifact, wrong signed subject, ignored build failure, bare GitHub App owner,
 App account owner, placeholder guild lead team, placeholder owner, missing
 human owner, and App alongside the human owner. A passing baseline is required
 before the negative checks, so an unrelated failure cannot count as rejection.
-Strict mypy was rerun and remains blocked only by missing PyYAML type stubs.
+CI now installs types-PyYAML and runs strict mypy. An offline installation
+attempt found no cached types-PyYAML distribution; local strict mypy remains
+blocked by that missing dependency, with no suppression added.
 During the bootstrap, workflow shell blocks were parsed with `bash -n` and
 verification flags were checked against
 `gh attestation verify --help`. Live artifact tamper and signer-verification tests remain unrun.
 
 ## §4 MEMORY INGEST
 
-- Type A count: 15; Type B count: 23; Type C count: 3.
+- Type A count: 15; Type B count: 23; Type C count: 4.
 - IOO compliance: true; DKG orphans: 0.
 - Payload: .bits/out/DISP-GOVERNANCE-entertainment/memory.json; JSON CGRF metadata: .bits/out/DISP-GOVERNANCE-entertainment/memory.cgrf.yaml.
 - Verify counts/links against the payload summary. No Memory MCP call made.
@@ -116,9 +118,11 @@ Logical stages retain the repository's existing layout, as specified in AGENTS.m
 - Secret scan: no forbidden credential prefixes in changed files.
 - Stripe mode: not applicable; no checkout or Stripe logic touched.
 - GitHub settings and production: not changed. The session records PR #15 as
-  merged; this continuation stays on the same branch and does not open another
-  PR or claim to add code to the completed merge. Revised PR metadata is prepared
-  for the UI; the published PR description has not been directly edited.
+  merged. The operator now authorizes a new continuation PR. The identity
+  change was rebased onto origin/main at 246dda4f23e18e24af175d03060cd1f63562ea4f.
+  The bound branch is ready for UI publication; no PR was created directly.
+  The separately authorized build SRS will remain on a follow-up branch, as
+  required by AGENTS.md. No published history was rewritten.
 - Default branch assumed main from existing workflows; repository CLI default-
   branch lookup was unavailable due to host/remote configuration mismatch.
 - Remote VCC registration and sibling-repo comparison: not performed.
