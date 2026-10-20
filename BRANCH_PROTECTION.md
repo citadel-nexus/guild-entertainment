@@ -57,10 +57,16 @@ enabling one, add and validate `merge_group` coverage for every required check.
 
 ## Ownership prerequisites
 
-Confirm `guild-entertainment-leads` and `sdk-core` exist as visible GitHub teams
-with write access. Confirm Director Nexus's GitHub identity and lead-team
-membership; `director` is only the supplied GitLab identity. Validate CODEOWNERS
-in GitHub. Code-owner review cannot enforce two separate team approvals;
+The Datadog team **Entertainment Guild — Director Nexus** links
+`@citadel-nexus/guild-entertainment` and `director-nexus-ent-guildmaster`.
+The team is the human code owner; the App is the **automation identity only**.
+It is never a substitute for human code-owner review of `.github/**`, CODEOWNERS,
+GOVERNANCE.md or workflows. No routine App bypass is permitted; any emergency
+bypass needs a recorded justification and independent human approval, minimum
+scope and duration, and removal/audit afterward. Human review is still required.
+
+Administrators must validate the team and `sdk-core` visibility/write access
+and CODEOWNERS recognition in GitHub. Code-owner review cannot enforce two separate team approvals;
 apply the additional approval procedure in GOVERNANCE.md.
 
 ## Signing and Actions prerequisites
@@ -78,15 +84,13 @@ on the GitHub plan). No environment approval or settings changes are made here.
 
 ## Activation blockers and acceptance
 
-The current scaffold has no npm lockfile, TypeScript configuration, ESLint
-configuration or declared TypeScript/Vitest/ESLint tool dependencies. Existing
-npm checks fail; `npm ci` cannot run without a lockfile. A separate authorized
-build-toolchain change must repair the scaffold. Do not disable required checks
-or substitute a source archive for a successful application build.
+BUILD.md describes the repaired toolchain and manual lockfile-refresh flow.
+The lockfile still requires authenticated registry access and a reviewed PR.
+Do not disable required checks or substitute a source archive for a real build.
 
 After repair: run a PR build, observe all required checks, test rejected
 unsigned commits and missing owner approval, merge through the protected path,
 and verify a main-branch artifact as described in PROVENANCE.md. Confirm PR
 runs skip signing. Record results before treating protections and provenance as
-operational. Default-branch settings, permissions and owner identity remain
+operational. Default-branch settings, permissions and team access remain
 administrator tasks; this staging change does not claim they are enabled.

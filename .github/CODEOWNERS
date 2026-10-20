@@ -15,13 +15,15 @@
 # Intent: Route code review to guild leadership while retaining public SDK ownership.
 # ───────────────────────────────────────────────────────────────
 
-# Guildmaster: Director Nexus (GitLab: director).
-# GitHub review route: the existing guild lead team below. Admin must confirm
-# Director Nexus's GitHub mapping and membership/write access before enforcement.
-# Do not assume the unrelated GitHub account @director is the GitLab identity.
-* @citadel-nexus/guild-entertainment-leads
+# Human review team linked by Datadog's Entertainment Guild — Director Nexus.
+* @citadel-nexus/guild-entertainment
 
-# Keep the SDK owner and request guild leadership on the public interface.
-# GitHub accepts approval by ANY matching owner; GOVERNANCE.md additionally
-# requires guildmaster approval, enforced by the merger until identity mapping.
-src/index.ts @citadel-nexus/sdk-core @citadel-nexus/guild-entertainment-leads
+# SDK interface changes retain SDK ownership and guild review.
+src/index.ts @citadel-nexus/sdk-core @citadel-nexus/guild-entertainment
+
+# Explicit human ownership of policy and automation.
+.github/** @citadel-nexus/guild-entertainment
+.github/CODEOWNERS @citadel-nexus/guild-entertainment
+CODEOWNERS @citadel-nexus/guild-entertainment
+GOVERNANCE.md @citadel-nexus/guild-entertainment
+BRANCH_PROTECTION.md @citadel-nexus/guild-entertainment

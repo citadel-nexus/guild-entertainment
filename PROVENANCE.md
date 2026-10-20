@@ -2,7 +2,7 @@
 # ─── CGRF Header ───────────────────────────────────────────────
 # File: PROVENANCE.md
 # Stage: 06_PLAN
-# SRS: SRS-CN-ENTERTAINMENT-GOVERNANCE-001
+# SRS: SRS-CN-ENTERTAINMENT-GOVERNANCE-001, SRS-CN-ENTERTAINMENT-BUILD-001
 # CAPS: pending
 # CK: pending
 # Dispatch: DISP-GOVERNANCE-entertainment
@@ -22,8 +22,8 @@
 ## Artifact and trust boundary
 
 The `Build provenance` workflow validates governance, then runs `npm ci`, lint,
-tests and the existing TypeScript build. It packages `dist/`, package metadata,
-README and LICENSE into `guild-entertainment-dist.tar.gz`. The archive is a build
+typecheck, tests and a clean TypeScript build. It packages `dist/`, package metadata,
+the registry-generated lockfile, README and LICENSE into `guild-entertainment-dist.tar.gz`. The archive is a build
 distribution, not a container or published npm release; dependencies are not
 bundled. Existing Docker and npm publication workflows are outside this scope.
 
@@ -82,20 +82,31 @@ source restriction. Use GitHub CLI's supported trust-root handling; do not
 disable signature or transparency verification. This is not a promise of
 fully offline verification.
 
-As an admin acceptance test, verify the untouched archive successfully, then
-copy it, append a byte and require verification of the copy to fail. Also
-require failure when using an unrelated expected source SHA. Never consume or
-deploy the deliberately corrupted copy. These live tests have not been run
-in this sandbox.
+The main-only signing job performs the same `gh attestation verify` check
+against its saved bundle, expected source SHA and signer workflow. It then
+appends a byte to a temporary copy and requires verification to fail. It also
+verifies the original archive with the wrong signer identity
+`citadel-nexus/guild-entertainment/.github/workflows/ci.yml` and requires failure.
+Either unexpected success fails the job. A final positive verification detects
+persistent service/trust-root failures; the temporary corrupted copy is deleted.
+These are real cryptographic checks when run on GitHub, not checksum comparisons.
+
+The local build contract executes the shell with a fake gh command to test
+success/failure propagation, including a verifier that accepts tampering or the
+wrong signer. This is only control-flow evidence. Live signing and cryptographic
+negative checks have not been run in this sandbox. Administrators should also
+check that an unrelated expected source SHA fails, retaining all other flags.
 
 ## Limits and prerequisites
 
 See BRANCH_PROTECTION.md for administrator activation and the pre-existing
-build-toolchain blockers. No signed artifact is produced until the real build
-succeeds. GitHub OIDC identity is not a Director Nexus personal signature and
+lockfile and package-access prerequisites in BUILD.md. No signed artifact is
+produced until the real build succeeds. GitHub OIDC identity is not a Director Nexus personal signature and
 artifact signing does not satisfy the signed-commit rule. SLSA v1 is the
 predicate format; this change makes no independently assessed SLSA level claim.
-The trust boundary includes the reviewed workflow, versioned official Actions,
+The trust boundary includes the reviewed workflow, full-SHA-pinned Actions,
 GitHub-hosted runners, dependency inputs and repository controls. Review action
-updates as code-owner changes; this follows the repo's major-version action
-convention and does not claim immutable action revisions or reproducible builds.
+updates as human code-owner changes. Immutable action references do not establish
+reproducible builds or prove registry contents; the reviewed lockfile and actual
+build gates remain necessary. Only a newly compiled distribution is packaged;
+failed installs, tests or builds cannot produce an attestation.

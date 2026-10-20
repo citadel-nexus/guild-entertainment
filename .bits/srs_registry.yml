@@ -1,16 +1,16 @@
 # ─── CGRF Header ───────────────────────────────────────────────
 # File: .bits/srs_registry.yml
 # Stage: 11_COMMIT
-# SRS: SRS-CN-ENTERTAINMENT-GOVERNANCE-001
+# SRS: SRS-CN-ENTERTAINMENT-GOVERNANCE-001, SRS-CN-ENTERTAINMENT-BUILD-001
 # CAPS: pending
 # CK: pending
 # Dispatch: DISP-GOVERNANCE-entertainment
 # Seat: BITS-CODEGEN
 # Owner: Citadel Nexus Inc.
 # Created: 2026-10-20
-# Depends: .bits/srs/SRS-CN-ENTERTAINMENT-GOVERNANCE-001.md
+# Depends: .bits/srs/SRS-CN-ENTERTAINMENT-GOVERNANCE-001.md, .bits/srs/SRS-CN-ENTERTAINMENT-BUILD-001.md
 # EnumType: ConfigDoc
-# EnumEdges: OWNS .bits/srs/SRS-CN-ENTERTAINMENT-GOVERNANCE-001.md
+# EnumEdges: OWNS .bits/srs/SRS-CN-ENTERTAINMENT-GOVERNANCE-001.md; OWNS .bits/srs/SRS-CN-ENTERTAINMENT-BUILD-001.md
 # DAG Node: none
 # Intent: Register the governance SRS while preserving the existing living-world entry.
 # ───────────────────────────────────────────────────────────────
@@ -46,3 +46,26 @@ SRS-CN-ENTERTAINMENT-GOVERNANCE-001:
   notes: >
     Locally authorized staging bootstrap. Ownership, branch policy and signed
     build provenance only; no deployment or GitHub settings changes.
+
+SRS-CN-ENTERTAINMENT-BUILD-001:
+  status: in_progress
+  phase: "Offline-safe build repair and authenticated lockfile refresh"
+  dispatch: DISP-BUILD-entertainment
+  cks_gate: "B+/75"
+  caps_minimum: "B+"
+  paths:
+    - package.json
+    - .nvmrc
+    - tsconfig.json
+    - tsconfig.build.json
+    - eslint.config.mjs
+    - vitest.config.ts
+    - tests/
+    - docker/
+    - .github/workflows/
+    - .bits/
+    - BUILD.md
+    - PROVENANCE.md
+  notes: >
+    Operator-authorized staging work paired with the governance identity
+    continuation in one branch/PR. No deploy, settings, secrets or main push.

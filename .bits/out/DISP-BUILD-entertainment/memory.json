@@ -1,0 +1,1328 @@
+{
+  "type_a": [
+    {
+      "type": "A",
+      "file_path": ".bits/check_build.py",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-BUILD-001"
+      ],
+      "enum_type": "Test",
+      "functions": [
+        "workflow"
+      ],
+      "dependencies": [
+        ".github/workflows/lockfile-refresh.yml",
+        ".github/workflows/build-provenance.yml",
+        "package.json"
+      ],
+      "lines": 185,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Reject unsafe lockfile automation and verify provenance rejection control flow offline.",
+      "objective_id": "DISP-BUILD-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILD-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-BUILD-001",
+        "staging-build-repair"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".bits/out/DISP-BUILD-entertainment/memory.cgrf.yaml",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-BUILD-001"
+      ],
+      "enum_type": "Schema",
+      "functions": [],
+      "dependencies": [
+        ".bits/out/DISP-BUILD-entertainment/memory.json"
+      ],
+      "lines": 35,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Supply typed governance metadata for the dispatch evidence payload.",
+      "objective_id": "DISP-BUILD-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILD-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-BUILD-001",
+        "staging-build-repair"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".bits/out/DISP-BUILD-entertainment/memory.json",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-BUILD-001"
+      ],
+      "enum_type": "Schema",
+      "functions": [],
+      "dependencies": [
+        ".bits/out/DISP-BUILD-entertainment/report.md"
+      ],
+      "lines": 1328,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Preserve file relationships and observed verification results for the authorized staging dispatch.",
+      "objective_id": "DISP-BUILD-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILD-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-BUILD-001",
+        "staging-build-repair"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".bits/out/DISP-BUILD-entertainment/report.md",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-BUILD-001"
+      ],
+      "enum_type": "Doc",
+      "functions": [],
+      "dependencies": [
+        ".bits/queue/DISP-BUILD-entertainment.md"
+      ],
+      "lines": 146,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Record the verified staging outcomes and unresolved connected-environment gates.",
+      "objective_id": "DISP-BUILD-entertainment",
+      "outcome": "partial",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILD-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-BUILD-001",
+        "staging-build-repair"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".bits/queue/DISP-BUILD-entertainment.md",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-BUILD-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-ENTERTAINMENT-BUILD-001.md"
+      ],
+      "lines": 55,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Record the current operator authorization and phase gates for the build repair.",
+      "objective_id": "DISP-BUILD-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILD-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-BUILD-001",
+        "staging-build-repair"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".bits/requirements-checks.txt",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-BUILD-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-ENTERTAINMENT-BUILD-001.md"
+      ],
+      "lines": 20,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Install typed YAML support so governance contract checks can pass strict mypy in CI.",
+      "objective_id": "DISP-BUILD-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILD-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-BUILD-001",
+        "staging-build-repair"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".bits/srs/SRS-CN-ENTERTAINMENT-BUILD-001.md",
+      "cket_stage": "04_HYPOTHESIZE",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-BUILD-001"
+      ],
+      "enum_type": "Doc",
+      "functions": [],
+      "dependencies": [
+        ".bits/queue/DISP-BUILD-entertainment.md"
+      ],
+      "lines": 41,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Define the authorized build repair acceptance gates and its bounded staging exception.",
+      "objective_id": "DISP-BUILD-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILD-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-BUILD-001",
+        "staging-build-repair"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".dockerignore",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-BUILD-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-ENTERTAINMENT-BUILD-001.md"
+      ],
+      "lines": 25,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Exclude credentials and local build state from the Docker build context.",
+      "objective_id": "DISP-BUILD-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILD-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-BUILD-001",
+        "staging-build-repair"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".github/workflows/ci.yml",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-BUILD-001"
+      ],
+      "enum_type": "Workflow",
+      "functions": [],
+      "dependencies": [
+        "package.json",
+        "docker/Dockerfile"
+      ],
+      "lines": 73,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Require the full Node build gates before the existing trusted-main container publication.",
+      "objective_id": "DISP-BUILD-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILD-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-BUILD-001",
+        "staging-build-repair"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".github/workflows/lockfile-refresh.yml",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-BUILD-001"
+      ],
+      "enum_type": "Workflow",
+      "functions": [],
+      "dependencies": [
+        "package.json",
+        "BUILD.md"
+      ],
+      "lines": 97,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Resolve and validate a genuine lockfile before opening a human-reviewed bot branch PR.",
+      "objective_id": "DISP-BUILD-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILD-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-BUILD-001",
+        "staging-build-repair"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".github/workflows/release.yml",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-BUILD-001"
+      ],
+      "enum_type": "Workflow",
+      "functions": [],
+      "dependencies": [
+        "package.json",
+        ".nvmrc"
+      ],
+      "lines": 51,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Apply the aligned Node toolchain and complete validation gates to existing tag releases.",
+      "objective_id": "DISP-BUILD-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILD-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-BUILD-001",
+        "staging-build-repair"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".gitignore",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-BUILD-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-ENTERTAINMENT-BUILD-001.md"
+      ],
+      "lines": 25,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Prevent generated build outputs and local dependency caches from entering source control.",
+      "objective_id": "DISP-BUILD-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILD-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-BUILD-001",
+        "staging-build-repair"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".nvmrc",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-BUILD-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".bits/srs/SRS-CN-ENTERTAINMENT-BUILD-001.md"
+      ],
+      "lines": 1,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Keep developer and CI Node versions aligned with the supported Node 22 runtime.",
+      "objective_id": "DISP-BUILD-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILD-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-BUILD-001",
+        "staging-build-repair"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": ".nvmrc.cgrf.yaml",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-BUILD-001"
+      ],
+      "enum_type": "Schema",
+      "functions": [],
+      "dependencies": [
+        ".nvmrc"
+      ],
+      "lines": 34,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Describe governance metadata without adding comments to the represented configuration file.",
+      "objective_id": "DISP-BUILD-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILD-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-BUILD-001",
+        "staging-build-repair"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "BUILD.md",
+      "cket_stage": "06_PLAN",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-BUILD-001"
+      ],
+      "enum_type": "Doc",
+      "functions": [],
+      "dependencies": [
+        ".github/workflows/lockfile-refresh.yml",
+        "BRANCH_PROTECTION.md",
+        "PROVENANCE.md"
+      ],
+      "lines": 127,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Explain authenticated lockfile bootstrap and administrator gates without claiming offline build success.",
+      "objective_id": "DISP-BUILD-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILD-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-BUILD-001",
+        "staging-build-repair"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "docker/Dockerfile",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-BUILD-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        "package.json",
+        "tsconfig.build.json"
+      ],
+      "lines": 38,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Build the compiled guild using ephemeral registry credentials without retaining tokens in image layers.",
+      "objective_id": "DISP-BUILD-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILD-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-BUILD-001",
+        "staging-build-repair"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "eslint.config.mjs",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-BUILD-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        "package.json"
+      ],
+      "lines": 29,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Catch TypeScript defects consistently with the declared ESLint flat configuration.",
+      "objective_id": "DISP-BUILD-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILD-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-BUILD-001",
+        "staging-build-repair"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "package-lock.json.cgrf.yaml",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-BUILD-001"
+      ],
+      "enum_type": "Schema",
+      "functions": [],
+      "dependencies": [
+        "package-lock.json"
+      ],
+      "lines": 35,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Describe governance metadata without adding comments to the represented configuration file.",
+      "objective_id": "DISP-BUILD-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILD-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-BUILD-001",
+        "staging-build-repair"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "package.json",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-BUILD-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        ".nvmrc"
+      ],
+      "lines": 33,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Declare the compiler, lint and isolated test tools required to build the guild.",
+      "objective_id": "DISP-BUILD-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILD-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-BUILD-001",
+        "staging-build-repair"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "package.json.cgrf.yaml",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-BUILD-001"
+      ],
+      "enum_type": "Schema",
+      "functions": [],
+      "dependencies": [
+        "package.json"
+      ],
+      "lines": 34,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Describe governance metadata without adding comments to the represented configuration file.",
+      "objective_id": "DISP-BUILD-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILD-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-BUILD-001",
+        "staging-build-repair"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "tests/automation.test.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-BUILD-001"
+      ],
+      "enum_type": "Test",
+      "functions": [],
+      "dependencies": [
+        "src/automation/cml-bridge.ts",
+        "src/automation/nats-listener.ts",
+        "vitest.config.ts"
+      ],
+      "lines": 73,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Exercise NATS listener and task result failure paths without production connections.",
+      "objective_id": "DISP-BUILD-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILD-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-BUILD-001",
+        "staging-build-repair"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "tests/health.test.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-BUILD-001"
+      ],
+      "enum_type": "Test",
+      "functions": [],
+      "dependencies": [
+        "src/routes/health.ts",
+        "vitest.config.ts"
+      ],
+      "lines": 33,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Detect changes to the public health response and its clock-derived timestamp.",
+      "objective_id": "DISP-BUILD-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILD-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-BUILD-001",
+        "staging-build-repair"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "tests/startup.test.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-BUILD-001"
+      ],
+      "enum_type": "Test",
+      "functions": [],
+      "dependencies": [
+        "src/index.ts",
+        "vitest.config.ts"
+      ],
+      "lines": 36,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Verify guild startup configuration without connecting the production SDK.",
+      "objective_id": "DISP-BUILD-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILD-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-BUILD-001",
+        "staging-build-repair"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "tsconfig.build.json",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-BUILD-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        "tsconfig.json"
+      ],
+      "lines": 20,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Emit only production guild sources into the distribution that provenance attests.",
+      "objective_id": "DISP-BUILD-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILD-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-BUILD-001",
+        "staging-build-repair"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "tsconfig.build.json.cgrf.yaml",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-BUILD-001"
+      ],
+      "enum_type": "Schema",
+      "functions": [],
+      "dependencies": [
+        "tsconfig.build.json"
+      ],
+      "lines": 34,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Describe governance metadata without adding comments to the represented configuration file.",
+      "objective_id": "DISP-BUILD-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILD-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-BUILD-001",
+        "staging-build-repair"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "tsconfig.json",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-BUILD-001"
+      ],
+      "enum_type": "ConfigDoc",
+      "functions": [],
+      "dependencies": [
+        "package.json"
+      ],
+      "lines": 24,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Typecheck guild code and isolated tests against strict Node ESM module rules.",
+      "objective_id": "DISP-BUILD-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILD-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-BUILD-001",
+        "staging-build-repair"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "tsconfig.json.cgrf.yaml",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-BUILD-001"
+      ],
+      "enum_type": "Schema",
+      "functions": [],
+      "dependencies": [
+        "tsconfig.json"
+      ],
+      "lines": 34,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Describe governance metadata without adding comments to the represented configuration file.",
+      "objective_id": "DISP-BUILD-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILD-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-BUILD-001",
+        "staging-build-repair"
+      ],
+      "tenant_id": null
+    },
+    {
+      "type": "A",
+      "file_path": "vitest.config.ts",
+      "cket_stage": "11_COMMIT",
+      "srs_codes": [
+        "SRS-CN-ENTERTAINMENT-BUILD-001"
+      ],
+      "enum_type": "Test",
+      "functions": [],
+      "dependencies": [
+        "package.json"
+      ],
+      "lines": 34,
+      "caps_grade": "pending",
+      "ck_stamp": "pending",
+      "intent_statement": "Enforce isolated runtime tests and minimum coverage before artifacts can be signed.",
+      "objective_id": "DISP-BUILD-entertainment",
+      "outcome": "success",
+      "supersedes": false,
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "seat": "BITS-CODEGEN",
+      "domain": "engineering",
+      "source_type": "seat_dispatch",
+      "tags": [
+        "DISP-BUILD-entertainment",
+        "BITS-CODEGEN",
+        "SRS-CN-ENTERTAINMENT-BUILD-001",
+        "staging-build-repair"
+      ],
+      "tenant_id": null
+    }
+  ],
+  "type_b": [
+    {
+      "type": "B",
+      "source": ".bits/check_build.py",
+      "target": ".github/workflows/lockfile-refresh.yml",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".bits/check_build.py depends on .github/workflows/lockfile-refresh.yml.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/check_build.py",
+      "target": ".github/workflows/build-provenance.yml",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".bits/check_build.py depends on .github/workflows/build-provenance.yml.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/check_build.py",
+      "target": "package.json",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".bits/check_build.py depends on package.json.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/out/DISP-BUILD-entertainment/memory.cgrf.yaml",
+      "target": ".bits/out/DISP-BUILD-entertainment/memory.json",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".bits/out/DISP-BUILD-entertainment/memory.cgrf.yaml depends on .bits/out/DISP-BUILD-entertainment/memory.json.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/out/DISP-BUILD-entertainment/memory.json",
+      "target": ".bits/out/DISP-BUILD-entertainment/report.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".bits/out/DISP-BUILD-entertainment/memory.json depends on .bits/out/DISP-BUILD-entertainment/report.md.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/out/DISP-BUILD-entertainment/report.md",
+      "target": ".bits/queue/DISP-BUILD-entertainment.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".bits/out/DISP-BUILD-entertainment/report.md depends on .bits/queue/DISP-BUILD-entertainment.md.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/queue/DISP-BUILD-entertainment.md",
+      "target": ".bits/srs/SRS-CN-ENTERTAINMENT-BUILD-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".bits/queue/DISP-BUILD-entertainment.md depends on .bits/srs/SRS-CN-ENTERTAINMENT-BUILD-001.md.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/requirements-checks.txt",
+      "target": ".bits/srs/SRS-CN-ENTERTAINMENT-BUILD-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".bits/requirements-checks.txt depends on .bits/srs/SRS-CN-ENTERTAINMENT-BUILD-001.md.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".bits/srs/SRS-CN-ENTERTAINMENT-BUILD-001.md",
+      "target": ".bits/queue/DISP-BUILD-entertainment.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".bits/srs/SRS-CN-ENTERTAINMENT-BUILD-001.md depends on .bits/queue/DISP-BUILD-entertainment.md.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".dockerignore",
+      "target": ".bits/srs/SRS-CN-ENTERTAINMENT-BUILD-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".dockerignore depends on .bits/srs/SRS-CN-ENTERTAINMENT-BUILD-001.md.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".github/workflows/ci.yml",
+      "target": "package.json",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".github/workflows/ci.yml depends on package.json.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".github/workflows/ci.yml",
+      "target": "docker/Dockerfile",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".github/workflows/ci.yml depends on docker/Dockerfile.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".github/workflows/lockfile-refresh.yml",
+      "target": "package.json",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".github/workflows/lockfile-refresh.yml depends on package.json.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".github/workflows/lockfile-refresh.yml",
+      "target": "BUILD.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".github/workflows/lockfile-refresh.yml depends on BUILD.md.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".github/workflows/release.yml",
+      "target": "package.json",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".github/workflows/release.yml depends on package.json.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".github/workflows/release.yml",
+      "target": ".nvmrc",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".github/workflows/release.yml depends on .nvmrc.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".gitignore",
+      "target": ".bits/srs/SRS-CN-ENTERTAINMENT-BUILD-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".gitignore depends on .bits/srs/SRS-CN-ENTERTAINMENT-BUILD-001.md.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".nvmrc",
+      "target": ".bits/srs/SRS-CN-ENTERTAINMENT-BUILD-001.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".nvmrc depends on .bits/srs/SRS-CN-ENTERTAINMENT-BUILD-001.md.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": ".nvmrc.cgrf.yaml",
+      "target": ".nvmrc",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": ".nvmrc.cgrf.yaml depends on .nvmrc.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "BUILD.md",
+      "target": ".github/workflows/lockfile-refresh.yml",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "BUILD.md depends on .github/workflows/lockfile-refresh.yml.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "BUILD.md",
+      "target": "BRANCH_PROTECTION.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "BUILD.md depends on BRANCH_PROTECTION.md.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "BUILD.md",
+      "target": "PROVENANCE.md",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "BUILD.md depends on PROVENANCE.md.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "docker/Dockerfile",
+      "target": "package.json",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "docker/Dockerfile depends on package.json.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "docker/Dockerfile",
+      "target": "tsconfig.build.json",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "docker/Dockerfile depends on tsconfig.build.json.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "eslint.config.mjs",
+      "target": "package.json",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "eslint.config.mjs depends on package.json.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "package-lock.json.cgrf.yaml",
+      "target": "package-lock.json",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "package-lock.json.cgrf.yaml depends on package-lock.json.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "package.json",
+      "target": ".nvmrc",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "package.json depends on .nvmrc.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "package.json.cgrf.yaml",
+      "target": "package.json",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "package.json.cgrf.yaml depends on package.json.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/automation.test.ts",
+      "target": "src/automation/cml-bridge.ts",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "tests/automation.test.ts depends on src/automation/cml-bridge.ts.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/automation.test.ts",
+      "target": "src/automation/nats-listener.ts",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "tests/automation.test.ts depends on src/automation/nats-listener.ts.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/automation.test.ts",
+      "target": "vitest.config.ts",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "tests/automation.test.ts depends on vitest.config.ts.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/health.test.ts",
+      "target": "src/routes/health.ts",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "tests/health.test.ts depends on src/routes/health.ts.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/health.test.ts",
+      "target": "vitest.config.ts",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "tests/health.test.ts depends on vitest.config.ts.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/startup.test.ts",
+      "target": "src/index.ts",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "tests/startup.test.ts depends on src/index.ts.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tests/startup.test.ts",
+      "target": "vitest.config.ts",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "tests/startup.test.ts depends on vitest.config.ts.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tsconfig.build.json",
+      "target": "tsconfig.json",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "tsconfig.build.json depends on tsconfig.json.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tsconfig.build.json.cgrf.yaml",
+      "target": "tsconfig.build.json",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "tsconfig.build.json.cgrf.yaml depends on tsconfig.build.json.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tsconfig.json",
+      "target": "package.json",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "tsconfig.json depends on package.json.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "tsconfig.json.cgrf.yaml",
+      "target": "tsconfig.json",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "tsconfig.json.cgrf.yaml depends on tsconfig.json.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    },
+    {
+      "type": "B",
+      "source": "vitest.config.ts",
+      "target": "package.json",
+      "edge_type": "DEPENDS_ON",
+      "weight": 1.0,
+      "description": "vitest.config.ts depends on package.json.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "created_by": "BITS-CODEGEN"
+    }
+  ],
+  "type_c": [
+    {
+      "type": "C",
+      "event_type": "test_pass",
+      "file_path": ".bits/check_build.py",
+      "description": "8 build/security contract tests passed, including five fake-CLI verification control-flow scenarios; no cryptographic verification claimed.",
+      "caps_before": null,
+      "caps_after": null,
+      "dag_impact": "Staging policy review can proceed; connected acceptance remains pending.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "timestamp": "2026-10-20T18:23:04.308645+00:00",
+      "commit_sha": null,
+      "smoke_result": "8/8"
+    },
+    {
+      "type": "C",
+      "event_type": "test_fail",
+      "file_path": "package.json",
+      "description": "All five npm gates blocked by missing real lockfile or dependencies; strict mypy blocked by unavailable types-PyYAML. No registry install, Docker build, live attestation or runtime coverage success claimed.",
+      "caps_before": null,
+      "caps_after": null,
+      "dag_impact": "Live artifact and lockfile acceptance remain blocked on a connected environment.",
+      "dispatch_id": "DISP-BUILD-entertainment",
+      "timestamp": "2026-10-20T18:23:04.308645+00:00",
+      "commit_sha": null,
+      "smoke_result": "0/6"
+    }
+  ],
+  "summary": {
+    "type_a_count": 28,
+    "type_b_count": 40,
+    "type_c_count": 2,
+    "ioo_compliance": true,
+    "dkg_orphans": 0,
+    "dispatch_id": "DISP-BUILD-entertainment",
+    "srs_codes": [
+      "SRS-CN-ENTERTAINMENT-BUILD-001"
+    ],
+    "seat": "BITS-CODEGEN"
+  }
+}

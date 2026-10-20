@@ -1,0 +1,20 @@
+# ─── CGRF Header ───────────────────────────────────────────────
+# File: .bits/requirements-checks.txt
+# Stage: 11_COMMIT
+# SRS: SRS-CN-ENTERTAINMENT-BUILD-001
+# CAPS: pending
+# CK: pending
+# Dispatch: DISP-BUILD-entertainment
+# Seat: BITS-CODEGEN
+# Owner: Citadel Nexus Inc.
+# Created: 2026-10-20
+# Depends: .bits/srs/SRS-CN-ENTERTAINMENT-BUILD-001.md
+# EnumType: ConfigDoc
+# EnumEdges: DEPENDS_ON .bits/srs/SRS-CN-ENTERTAINMENT-BUILD-001.md
+# DAG Node: none
+# Intent: Install typed YAML support so governance contract checks can pass strict mypy in CI.
+# ───────────────────────────────────────────────────────────────
+
+PyYAML==6.0.3
+types-PyYAML==6.0.12.20250915
+mypy==1.13.0

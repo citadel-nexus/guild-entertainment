@@ -1,0 +1,25 @@
+# ─── CGRF Header ───────────────────────────────────────────────
+# File: .dockerignore
+# Stage: 11_COMMIT
+# SRS: SRS-CN-ENTERTAINMENT-BUILD-001
+# CAPS: pending
+# CK: pending
+# Dispatch: DISP-BUILD-entertainment
+# Seat: BITS-CODEGEN
+# Owner: Citadel Nexus Inc.
+# Created: 2026-10-20
+# Depends: .bits/srs/SRS-CN-ENTERTAINMENT-BUILD-001.md
+# EnumType: ConfigDoc
+# EnumEdges: DEPENDS_ON .bits/srs/SRS-CN-ENTERTAINMENT-BUILD-001.md
+# DAG Node: none
+# Intent: Exclude credentials and local build state from the Docker build context.
+# ───────────────────────────────────────────────────────────────
+
+.git
+node_modules
+dist
+coverage
+.bits
+.env
+.env.*
+.npmrc

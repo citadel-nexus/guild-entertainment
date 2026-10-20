@@ -1,0 +1,34 @@
+# ─── CGRF Header ───────────────────────────────────────────────
+# File: .nvmrc.cgrf.yaml
+# Stage: 11_COMMIT
+# SRS: SRS-CN-ENTERTAINMENT-BUILD-001
+# CAPS: pending
+# CK: pending
+# Dispatch: DISP-BUILD-entertainment
+# Seat: BITS-CODEGEN
+# Owner: Citadel Nexus Inc.
+# Created: 2026-10-20
+# Depends: .nvmrc
+# EnumType: Schema
+# EnumEdges: DEPENDS_ON .nvmrc
+# DAG Node: none
+# Intent: Describe governance metadata without adding comments to the represented configuration file.
+# ───────────────────────────────────────────────────────────────
+
+file: .nvmrc
+stage: 11_COMMIT
+srs: SRS-CN-ENTERTAINMENT-BUILD-001
+caps: pending
+ck: pending
+dispatch: DISP-BUILD-entertainment
+seat: BITS-CODEGEN
+owner: Citadel Nexus Inc.
+created: '2026-10-20'
+depends:
+- .bits/srs/SRS-CN-ENTERTAINMENT-BUILD-001.md
+enum_type: ConfigDoc
+enum_edges:
+- verb: DEPENDS_ON
+  target: .bits/srs/SRS-CN-ENTERTAINMENT-BUILD-001.md
+dag_node: none
+intent: Keep developer and CI Node versions aligned with the supported Node 22 runtime.

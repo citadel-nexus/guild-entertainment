@@ -2,7 +2,7 @@
 # ─── CGRF Header ───────────────────────────────────────────────
 # File: .bits/context.md
 # Stage: 11_COMMIT
-# SRS: SRS-CN-ENTERTAINMENT-GOVERNANCE-001
+# SRS: SRS-CN-ENTERTAINMENT-GOVERNANCE-001, SRS-CN-ENTERTAINMENT-BUILD-001
 # CAPS: pending
 # CK: pending
 # Dispatch: DISP-GOVERNANCE-entertainment
@@ -19,13 +19,18 @@
 
 # Current staging context
 
-- Active SRS: SRS-CN-ENTERTAINMENT-GOVERNANCE-001.
+- Active SRS: SRS-CN-ENTERTAINMENT-GOVERNANCE-001 and SRS-CN-ENTERTAINMENT-BUILD-001.
+- Build dispatch: DISP-BUILD-entertainment, status `in_progress`.
+- Current operator directive authorizes both parts in one staging branch/PR.
+- Governance identity work continues under its existing dispatch; build repair
+  is authorized under the new build dispatch, including new configs and tests.
 - Dispatch: DISP-GOVERNANCE-entertainment, status `in_progress`.
 - Operator: authenticated Dmitry Richard, mr.nobody@citadel-nexus.com.
 - Seat: BITS-CODEGEN; mode: staging.
-- Authorization: the operator's governance-bootstrap directive in this session.
-- Scope: bootstrap records, ownership, charter, default-branch policy,
-  signed build provenance and verification documentation.
+- Authorization: the current operator directive for the identity continuation
+  and build repair in this staging session.
+- Scope: identity continuation, npm toolchain repair, isolated tests, manual
+  lockfile refresh, build provenance verification and administrator documentation.
 - Existing living-world SRS remains planned and outside this dispatch.
 - CKS target: B+/75; CAPS minimum: B+; scores and CK stamps: pending.
 
@@ -34,8 +39,8 @@ and fail closed when a build or attestation fails. Do record admin activation
 work and build prerequisites. Do not deploy, publish packages, alter settings,
 introduce secrets, or perform unrelated runtime repairs.
 
-Baseline lacks a lockfile, TypeScript config, ESLint config and declared build/
-test tools. These block existing npm CI and the new build job until resolved
-in a separate authorized change. GitHub identity for GitLab `director` needs
-admin confirmation. Existing CI targets `main`; remote default-branch metadata
-could not be queried with this sandbox's repository CLI configuration.
+The current directive authorizes repair of the missing toolchain. A real lockfile
+must be generated with authenticated registry access, never fabricated offline.
+The Datadog team Entertainment Guild — Director Nexus links human owner
+@citadel-nexus/guild-entertainment and automation App director-nexus-ent-guildmaster.
+Remote ruleset activation and access validation remain administrator tasks.

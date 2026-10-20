@@ -64,3 +64,16 @@ checks or expand this dispatch into runtime repairs. Static phase gates and
 full smoke results are reported separately; never describe the overall smoke
 as passing when baseline checks fail. A follow-up build-toolchain dispatch and
 admin activation are required before live provenance acceptance.
+
+## Identity continuation — 2026-10-20
+
+The current operator directive authorizes this continuation alongside
+SRS-CN-ENTERTAINMENT-BUILD-001 in one new branch/PR from updated main.
+This explicitly supersedes the usual one-SRS-per-PR default for this session.
+Use the Datadog Entertainment Guild — Director Nexus links recorded in the
+source conversation: @citadel-nexus/guild-entertainment (human owner) and
+director-nexus-ent-guildmaster (automation only). Preserve SDK ownership.
+Gate: `python .bits/check_governance.py` (10 checks) and
+`python .bits/check_governance.py --mutations` (12 rejected variants).
+The bootstrap report/memory remain historical; continuation evidence is filed
+under .bits/out/DISP-GOVERNANCE-entertainment/continuation/.

@@ -35,8 +35,9 @@ claimed. No production, deployment, direct push, settings change or secrets.
 
 1. Name Director Nexus (GitLab `director`) as guildmaster, document the
    entertainment surfaces, Tamagotchi agent pets and Entertainment Floor,
-   preserve SDK ownership, and route GitHub reviews through existing teams
-   until the guildmaster's GitHub identity is verified.
+   preserve SDK ownership, and route human GitHub review through
+   @citadel-nexus/guild-entertainment. Record director-nexus-ent-guildmaster
+   as the automation identity only, using the linked Datadog team as source.
 2. Document decisions, required guildmaster approval and guildmasters-group
    escalation. Describe admin steps for default-branch review, signed commits,
    required checks, no force pushes and no deletion. No settings automation
