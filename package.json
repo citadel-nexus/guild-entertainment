@@ -1,16 +1,33 @@
+
 {
   "name": "@citadel-guilds/entertainment",
   "version": "0.1.0",
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p tsconfig.build.json",
     "dev": "tsx watch src/index.ts",
-    "test": "vitest run",
-    "lint": "eslint src/"
+    "test": "vitest run --coverage",
+    "lint": "eslint src tests vitest.config.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
     "@citadel-guilds/sdk": "^0.1.0",
     "nats": "^2.19.0"
+  },
+  "engines": {
+    "node": ">=22 <23",
+    "npm": ">=10 <12"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.20.0",
+    "@types/node": "^22.13.0",
+    "@vitest/coverage-v8": "^3.2.4",
+    "eslint": "^9.20.0",
+    "globals": "^16.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.24.0",
+    "vitest": "^3.2.4"
   }
 }

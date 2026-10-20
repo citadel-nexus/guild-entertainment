@@ -1,0 +1,97 @@
+# ─── CGRF Header ───────────────────────────────────────────────
+# File: .github/workflows/lockfile-refresh.yml
+# Stage: 11_COMMIT
+# SRS: SRS-CN-ENTERTAINMENT-BUILD-001
+# CAPS: pending
+# CK: pending
+# Dispatch: DISP-BUILD-entertainment
+# Seat: BITS-CODEGEN
+# Owner: Citadel Nexus Inc.
+# Created: 2026-10-20
+# Depends: package.json, BUILD.md
+# EnumType: Workflow
+# EnumEdges: DEPENDS_ON package.json; DEPENDS_ON BUILD.md
+# DAG Node: none
+# Intent: Resolve and validate a genuine lockfile before opening a human-reviewed bot branch PR.
+# ───────────────────────────────────────────────────────────────
+
+name: Lockfile refresh
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: lockfile-refresh
+  cancel-in-progress: false
+jobs:
+  validate:
+    if: github.ref == 'refs/heads/main' && github.repository == 'citadel-nexus/guild-entertainment'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      packages: read
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .nvmrc
+          registry-url: https://npm.pkg.github.com
+          scope: '@citadel-guilds'
+      - run: npm install --package-lock-only --ignore-scripts
+      - run: npm ci && npm run lint && npm run typecheck && npm test && npm run build
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: validated-lockfile
+          path: package-lock.json
+          if-no-files-found: error
+          retention-days: 7
+  pull-request:
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: validated-lockfile
+          path: .
+      - uses: peter-evans/create-pull-request@5e914681df9dc83aa4e4905692ca88beb2f9e91f
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: main
+          branch: bits/lockfile-refresh
+          add-paths: package-lock.json
+          sign-commits: true
+          commit-message: |
+            chore(guild): refresh validated npm lockfile
+
+            Resolve registry dependencies after the isolated build gates pass.
+
+            Phase: C
+            Files: package-lock.json
+            Smoke: 5/5 passing
+            SRS: SRS-CN-ENTERTAINMENT-BUILD-001
+            Dispatch: DISP-BUILD-entertainment
+            CK: pending
+          title: 'Refresh validated npm lockfile [SRS-CN-ENTERTAINMENT-BUILD-001]'
+          body: |
+            ## Summary
+            Generate the npm lockfile using authenticated registry resolution.
+            This PR contains only the validated lockfile; human review is required.
+            ## SRS Code
+            SRS: SRS-CN-ENTERTAINMENT-BUILD-001
+            ## Testing
+            npm ci, lint, typecheck, test and build passed in the generating run.
+            A human must close/reopen this token-created PR to trigger required PR checks.
+            Review dependency changes and run links before merging; see BUILD.md.

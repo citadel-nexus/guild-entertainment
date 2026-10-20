@@ -39,11 +39,19 @@ a change. Require at least one guild member review and guildmaster approval
 (or a delegate explicitly designated in the PR). SDK public-interface changes
 also require `sdk-core` review; coordinate cross-guild changes with affected owners.
 
-The existing `@citadel-nexus/guild-entertainment-leads` team is the GitHub review
-route for Director Nexus. An administrator must verify their GitHub username,
-team membership and write access. GitLab `director` and the Datadog team name
-do not establish a GitHub account or team mapping. Once verified, add the
-actual GitHub username to CODEOWNERS if direct review assignment is desired.
+Identity source: the Datadog team **Entertainment Guild — Director Nexus**
+(`guild-entertainment`) links the GitHub team
+`@citadel-nexus/guild-entertainment` and GitHub App
+`director-nexus-ent-guildmaster`. This mapping is recorded from the operator's
+source conversation for the identity continuation; no new live directory
+lookup is claimed.
+
+The GitHub team owns human review. The App is the **automation identity only**;
+GitHub Apps cannot be CODEOWNERS. It is never a substitute for independent human
+code-owner review on `.github/**`, CODEOWNERS, GOVERNANCE.md or workflows.
+Do not grant routine App bypass. Any emergency bypass must be justified in the
+PR, approved by an independent human owner, limited to the minimum operation
+and duration, and removed and audited afterward. It does not waive human review.
 
 GitHub CODEOWNERS accepts approval by any owner on the matching line; it does
 not require both the SDK and guild teams, nor specifically the guildmaster.

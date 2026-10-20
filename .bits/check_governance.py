@@ -1,7 +1,7 @@
 # ─── CGRF Header ───────────────────────────────────────────────
 # File: .bits/check_governance.py
 # Stage: 11_COMMIT
-# SRS: SRS-CN-ENTERTAINMENT-GOVERNANCE-001
+# SRS: SRS-CN-ENTERTAINMENT-GOVERNANCE-001, SRS-CN-ENTERTAINMENT-BUILD-001
 # CAPS: pending
 # CK: pending
 # Dispatch: DISP-GOVERNANCE-entertainment
@@ -34,7 +34,8 @@ ROOT = Path(__file__).resolve().parents[1]
 SRS = "SRS-CN-ENTERTAINMENT-GOVERNANCE-001"
 DISPATCH = "DISP-GOVERNANCE-entertainment"
 # BaseLoader keeps GitHub's YAML `on` key a string instead of a YAML 1.1 boolean.
-WORKFLOW = yaml.load(
+OWNERS = (ROOT / ".github/CODEOWNERS").read_text()
+WORKFLOW: dict[str, Any] = yaml.load(
     (ROOT / ".github/workflows/build-provenance.yml").read_text(),
     Loader=yaml.BaseLoader,
 )
@@ -57,14 +58,24 @@ class GovernanceContract(unittest.TestCase):
 
     def test_ownership_preserves_sdk(self) -> None:
         """Retain the existing review teams and explicit guildmaster identity."""
-        owners = (ROOT / ".github/CODEOWNERS").read_text()
+        owners = OWNERS
         rules = [line.split() for line in owners.splitlines()
                  if line.strip() and not line.startswith("#")]
         self.assertEqual(rules, [
-            ["*", "@citadel-nexus/guild-entertainment-leads"],
+            ["*", "@citadel-nexus/guild-entertainment"],
             ["src/index.ts", "@citadel-nexus/sdk-core",
-             "@citadel-nexus/guild-entertainment-leads"],
+             "@citadel-nexus/guild-entertainment"],
+            [".github/**", "@citadel-nexus/guild-entertainment"],
+            [".github/CODEOWNERS", "@citadel-nexus/guild-entertainment"],
+            ["CODEOWNERS", "@citadel-nexus/guild-entertainment"],
+            ["GOVERNANCE.md", "@citadel-nexus/guild-entertainment"],
+            ["BRANCH_PROTECTION.md", "@citadel-nexus/guild-entertainment"],
         ])
+        for path in ("GOVERNANCE.md", "BRANCH_PROTECTION.md"):
+            policy = (ROOT / path).read_text()
+            for term in ("Entertainment Guild — Director Nexus", "director-nexus-ent-guildmaster",
+                         "automation identity only", "human", "bypass"):
+                self.assertIn(term, policy)
         charter = (ROOT / "GOVERNANCE.md").read_text()
         for term in ("Director Nexus", "Tamagotchi", "Entertainment Floor", "guildmasters group"):
             self.assertIn(term, charter)
@@ -95,8 +106,10 @@ class GovernanceContract(unittest.TestCase):
         for name, job in WORKFLOW["jobs"].items():
             self.assertEqual(job["runs-on"], "ubuntu-latest")
             if name != "attest":
-                self.assertEqual(job.get("permissions", WORKFLOW["permissions"]),
-                                 {"contents": "read"})
+                expected = {"contents": "read"}
+                if name == "build-artifact":
+                    expected["packages"] = "read"
+                self.assertEqual(job.get("permissions", WORKFLOW["permissions"]), expected)
             for step in job["steps"]:
                 if step.get("uses", "").startswith("actions/checkout@"):
                     self.assertEqual(step["with"]["persist-credentials"], "false")
@@ -109,29 +122,30 @@ class GovernanceContract(unittest.TestCase):
         self.assertNotIn("if", job)
         self.assertNotIn("continue-on-error", job)
         runs = [s["run"] for s in job["steps"] if "run" in s]
-        self.assertEqual(runs[:4], ["npm ci", "npm run lint", "npm test", "npm run build"])
-        self.assertIn("set -euo pipefail", runs[4])
-        self.assertIn("test -f dist/index.js", runs[4])
-        self.assertIn("tar -czf artifacts/guild-entertainment-dist.tar.gz dist ", runs[4])
+        self.assertEqual(runs[:5], ["npm ci", "npm run lint", "npm run typecheck",
+                                   "npm test", "rm -rf dist && npm run build"])
+        self.assertIn("set -euo pipefail", runs[5])
+        self.assertIn("test -f dist/index.js", runs[5])
+        self.assertIn("tar -czf artifacts/guild-entertainment-dist.tar.gz dist ", runs[5])
 
     def test_same_run_artifact(self) -> None:
         """Bind the signed subject to the exact same-run distribution upload."""
         jobs = WORKFLOW["jobs"]
         upload = jobs["build-artifact"]["steps"][-1]
         download = jobs["attest"]["steps"][0]
-        self.assertEqual(upload["uses"], "actions/upload-artifact@v4")
-        self.assertEqual(download["uses"], "actions/download-artifact@v4")
+        self.assertEqual(upload["uses"], "actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02")
+        self.assertEqual(download["uses"], "actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093")
         self.assertEqual(upload["with"]["if-no-files-found"], "error")
         self.assertEqual(download["with"], {"name": "entertainment-dist", "path": "artifacts"})
         self.assertEqual(upload["with"]["name"], download["with"]["name"])
         signer = jobs["attest"]["steps"][1]
-        self.assertEqual(signer["uses"], "actions/attest-build-provenance@v3")
+        self.assertEqual(signer["uses"], "actions/attest-build-provenance@977bb373ede98d70efdf65b84cb5f73e068dcc2a")
         self.assertEqual(signer["with"], {"subject-path": upload["with"]["path"]})
 
     def test_bundle_preserved_without_expression_in_shell(self) -> None:
         """Pass the generated bundle path through the environment before copying."""
         steps = WORKFLOW["jobs"]["attest"]["steps"]
-        self.assertEqual(len(steps), 4)
+        self.assertEqual(len(steps), 5)
         self.assertEqual(steps[2]["env"], {"BUNDLE_PATH": "${{ steps.provenance.outputs.bundle-path }}"})
         self.assertNotIn("${{", steps[2]["run"])
         self.assertIn('cp -- "$BUNDLE_PATH" provenance/provenance.jsonl', steps[2]["run"])
@@ -141,10 +155,17 @@ class GovernanceContract(unittest.TestCase):
     def test_verification_identity_constraints(self) -> None:
         """Require consumer verification to pin artifact and source identities."""
         doc = (ROOT / "PROVENANCE.md").read_text()
+        verification = WORKFLOW["jobs"]["attest"]["steps"][4]
+        self.assertEqual(verification["env"]["EXPECTED_COMMIT"], "${{ github.sha }}")
+        self.assertNotIn("${{", verification["run"])
         for flag in ("--repo", "--signer-workflow", "--source-ref refs/heads/main",
                      "--source-digest", "--predicate-type https://slsa.dev/provenance/v1",
                      "--deny-self-hosted-runners", "--bundle"):
             self.assertIn(flag, doc)
+            self.assertIn(flag, verification["run"])
+        self.assertIn('if verify "$tampered" "$signer"; then', verification["run"])
+        self.assertIn('if verify "$artifact" "$repo/.github/workflows/ci.yml"; then',
+                      verification["run"])
 
     def test_required_checks_exist_on_prs(self) -> None:
         """Keep required new checks reachable on every targeted pull request."""
@@ -160,6 +181,8 @@ class GovernanceContract(unittest.TestCase):
 
 def run_mutation_checks() -> bool:
     """Confirm that unsafe workflow variants fail the security contract."""
+    global OWNERS
+    original_owners = OWNERS
     original = copy.deepcopy(WORKFLOW)
     mutations: dict[str, Callable[[dict[str, Any]], None]] = {
         "privileged PR trigger": lambda w: w["on"].update({"pull_request_target": {}}),
@@ -168,6 +191,9 @@ def run_mutation_checks() -> bool:
         "cross-run download": lambda w: w["jobs"]["attest"]["steps"][0]["with"].update({"run-id": "1"}),
         "wrong subject": lambda w: w["jobs"]["attest"]["steps"][1]["with"].update({"subject-path": "other.tar.gz"}),
         "ignored build failure": lambda w: w["jobs"]["build-artifact"].update({"continue-on-error": "true"}),
+        "untrusted repository": lambda w: w["jobs"]["attest"].update({"if": "github.ref == 'refs/heads/main'"}),
+        "missing typecheck": lambda w: w["jobs"]["build-artifact"]["steps"].pop(4),
+        "mutable artifact action": lambda w: w["jobs"]["build-artifact"]["steps"][-1].update({"uses": "actions/upload-artifact@v4"}),
     }
     passed = True
     try:
@@ -181,7 +207,20 @@ def run_mutation_checks() -> bool:
             rejected = bool(result.failures) and not result.errors
             print(f"{'PASS' if rejected else 'FAIL'}: reject {name}")
             passed = passed and rejected
+        WORKFLOW.clear()
+        WORKFLOW.update(copy.deepcopy(original))
+        for name, owner in (("bare App owner", "@director-nexus-ent-guildmaster"),
+                            ("placeholder owner", "@citadel-nexus/identity-pending"),
+                            ("legacy owner", "@citadel-nexus/guild-entertainment-leads")):
+            OWNERS = original_owners.replace("@citadel-nexus/guild-entertainment", owner)
+            result = unittest.TextTestRunner(stream=io.StringIO()).run(
+                unittest.defaultTestLoader.loadTestsFromTestCase(GovernanceContract)
+            )
+            rejected = bool(result.failures) and not result.errors
+            print(f"{'PASS' if rejected else 'FAIL'}: reject {name}")
+            passed = passed and rejected
     finally:
+        OWNERS = original_owners
         WORKFLOW.clear()
         WORKFLOW.update(original)
     return passed

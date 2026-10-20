@@ -1,37 +1,73 @@
+# ─── CGRF Header ───────────────────────────────────────────────
+# File: .github/workflows/ci.yml
+# Stage: 11_COMMIT
+# SRS: SRS-CN-ENTERTAINMENT-BUILD-001
+# CAPS: pending
+# CK: pending
+# Dispatch: DISP-BUILD-entertainment
+# Seat: BITS-CODEGEN
+# Owner: Citadel Nexus Inc.
+# Created: 2026-10-20
+# Depends: package.json, docker/Dockerfile
+# EnumType: Workflow
+# EnumEdges: DEPENDS_ON package.json; DEPENDS_ON docker/Dockerfile
+# DAG Node: none
+# Intent: Require the full Node build gates before the existing trusted-main container publication.
+# ───────────────────────────────────────────────────────────────
+
 name: CI — guild-entertainment
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
+permissions:
+  contents: read
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      packages: read
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
-          node-version: 20
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .nvmrc
+          registry-url: https://npm.pkg.github.com
+          scope: '@citadel-guilds'
       - run: npm ci
       - run: npm run lint
+      - run: npm run typecheck
       - run: npm test
       - run: npm run build
   docker:
     needs: build
-    if: github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && github.repository == 'citadel-nexus/guild-entertainment'
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     permissions:
+      contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: docker/login-action@v3
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          persist-credentials: false
+      - uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - uses: docker/build-push-action@v5
+      - uses: docker/build-push-action@263435318d21b8e681c14492fe198d362a7d2c83
         with:
           context: .
           file: docker/Dockerfile
           push: true
           tags: ghcr.io/citadel-nexus/guild-entertainment:latest
+          secrets: |
+            node_auth_token=${{ secrets.GITHUB_TOKEN }}

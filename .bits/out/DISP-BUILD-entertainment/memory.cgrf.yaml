@@ -1,0 +1,35 @@
+# ─── CGRF Header ───────────────────────────────────────────────
+# File: .bits/out/DISP-BUILD-entertainment/memory.cgrf.yaml
+# Stage: 11_COMMIT
+# SRS: SRS-CN-ENTERTAINMENT-BUILD-001
+# CAPS: pending
+# CK: pending
+# Dispatch: DISP-BUILD-entertainment
+# Seat: BITS-CODEGEN
+# Owner: Citadel Nexus Inc.
+# Created: 2026-10-20
+# Depends: .bits/out/DISP-BUILD-entertainment/memory.json
+# EnumType: Schema
+# EnumEdges: DEPENDS_ON .bits/out/DISP-BUILD-entertainment/memory.json
+# DAG Node: none
+# Intent: Supply typed governance metadata for the dispatch evidence payload.
+# ───────────────────────────────────────────────────────────────
+
+file: .bits/out/DISP-BUILD-entertainment/memory.json
+stage: 11_COMMIT
+srs: SRS-CN-ENTERTAINMENT-BUILD-001
+caps: pending
+ck: pending
+dispatch: DISP-BUILD-entertainment
+seat: BITS-CODEGEN
+owner: Citadel Nexus Inc.
+created: '2026-10-20'
+depends:
+- .bits/out/DISP-BUILD-entertainment/report.md
+enum_type: Schema
+enum_edges:
+- verb: DEPENDS_ON
+  target: .bits/out/DISP-BUILD-entertainment/report.md
+dag_node: none
+intent: Preserve file relationships and observed verification results for the authorized
+  staging dispatch.
